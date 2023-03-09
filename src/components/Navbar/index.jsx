@@ -27,7 +27,7 @@ const NavBar = () => {
       <Box>
         <UnorderedList display="flex" fontFamily="Inter" fontWeight="500" fontSize={{ base: ".8rem", md: "1rem" }}>
           <ListItem listStyleType="none" _hover={{ color: "brand.btn", transition: "0.2s" }} m={4}>
-            <Link to="/brecho-solidario">Inicio</Link>
+            <Link to="/brecho-solidario">Iniciooo</Link>
           </ListItem>
           <ListItem listStyleType="none" m={4} _hover={{ color: "brand.btn", transition: "0.2s" }}>
             <Link to="/brecho-solidario/explorar">Explorar</Link>

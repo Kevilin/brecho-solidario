@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/brecho-solidario/static/js/main.3971787d.chunk.js",
+    "main.js.map": "/brecho-solidario/static/js/main.3971787d.chunk.js.map",
+    "runtime-main.js": "/brecho-solidario/static/js/runtime-main.c146d44a.js",
+    "runtime-main.js.map": "/brecho-solidario/static/js/runtime-main.c146d44a.js.map",
+    "static/js/2.493ea00a.chunk.js": "/brecho-solidario/static/js/2.493ea00a.chunk.js",
+    "static/js/2.493ea00a.chunk.js.map": "/brecho-solidario/static/js/2.493ea00a.chunk.js.map",
+    "index.html": "/brecho-solidario/index.html",
+    "precache-manifest.34559fd8a75562af4faac734b5de6fb0.js": "/brecho-solidario/precache-manifest.34559fd8a75562af4faac734b5de6fb0.js",
+    "service-worker.js": "/brecho-solidario/service-worker.js",
+    "static/js/2.493ea00a.chunk.js.LICENSE.txt": "/brecho-solidario/static/js/2.493ea00a.chunk.js.LICENSE.txt",
+    "static/media/404.png": "/brecho-solidario/static/media/404.f3dd7a96.png",
+    "static/media/cabide.png": "/brecho-solidario/static/media/cabide.b1a81924.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c146d44a.js",
+    "static/js/2.493ea00a.chunk.js",
+    "static/js/main.3971787d.chunk.js"
+  ]
+}

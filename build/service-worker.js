@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/brecho-solidario/precache-manifest.34559fd8a75562af4faac734b5de6fb0.js"
+  "/brecho-solidario/precache-manifest.74634459c263d35c3857a8f567cff22c.js"
 );
 
 self.addEventListener('message', (event) => {

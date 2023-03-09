@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/brecho-solidario/static/js/main.3971787d.chunk.js",
-    "main.js.map": "/brecho-solidario/static/js/main.3971787d.chunk.js.map",
+    "main.js": "/brecho-solidario/static/js/main.13784b70.chunk.js",
+    "main.js.map": "/brecho-solidario/static/js/main.13784b70.chunk.js.map",
     "runtime-main.js": "/brecho-solidario/static/js/runtime-main.c146d44a.js",
     "runtime-main.js.map": "/brecho-solidario/static/js/runtime-main.c146d44a.js.map",
     "static/js/2.493ea00a.chunk.js": "/brecho-solidario/static/js/2.493ea00a.chunk.js",
     "static/js/2.493ea00a.chunk.js.map": "/brecho-solidario/static/js/2.493ea00a.chunk.js.map",
     "index.html": "/brecho-solidario/index.html",
-    "precache-manifest.34559fd8a75562af4faac734b5de6fb0.js": "/brecho-solidario/precache-manifest.34559fd8a75562af4faac734b5de6fb0.js",
+    "precache-manifest.74634459c263d35c3857a8f567cff22c.js": "/brecho-solidario/precache-manifest.74634459c263d35c3857a8f567cff22c.js",
     "service-worker.js": "/brecho-solidario/service-worker.js",
     "static/js/2.493ea00a.chunk.js.LICENSE.txt": "/brecho-solidario/static/js/2.493ea00a.chunk.js.LICENSE.txt",
     "static/media/404.png": "/brecho-solidario/static/media/404.f3dd7a96.png",
@@ -16,6 +16,6 @@
   "entrypoints": [
     "static/js/runtime-main.c146d44a.js",
     "static/js/2.493ea00a.chunk.js",
-    "static/js/main.3971787d.chunk.js"
+    "static/js/main.13784b70.chunk.js"
   ]
 }

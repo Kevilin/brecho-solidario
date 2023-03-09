@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "159e121a73acbdf71b35dc1221212b20",
+    "revision": "4347af96a03dfa1f4786c8420c13ef9d",
     "url": "/brecho-solidario/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/brecho-solidario/static/js/2.493ea00a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "dc18a561620cff74390d",
-    "url": "/brecho-solidario/static/js/main.3971787d.chunk.js"
+    "revision": "97e6e8c2ea99177ad6b6",
+    "url": "/brecho-solidario/static/js/main.13784b70.chunk.js"
   },
   {
     "revision": "67e2452e9269de0674cd",

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Box, Center, Spinner } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 import { GetData } from "../../../helpers/helpers";
-import MoreDetails from "../../../components/MoreDetails";
+import MaisDetalhes from "../../../components/MaisDetalhes";
 const Info = () => {
   const params = useParams();
   const { getDataFirebase, data } = GetData();
@@ -21,7 +21,7 @@ const Info = () => {
           <Spinner size="xl" color="brand.btn" m="0 auto" />
         </Center>
       ) : (
-        filterInfo.map((res) => <MoreDetails res={res} key={nanoid()} />)
+        filterInfo.map((res) => <MaisDetalhes res={res} key={nanoid()} />)
       )}
     </Box>
   );

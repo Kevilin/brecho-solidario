@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@chakra-ui/button";
 
-const ButtonSecondary = ({ route, title }) => {
+const Botao = ({ route, title }) => {
   const handleTop = () => {
     window.scrollTo({
       top: 0,
@@ -10,11 +10,11 @@ const ButtonSecondary = ({ route, title }) => {
   };
   return (
     <Link to={route}>
-      <Button role="button" mt={4} bg="brand.btntwo" onClick={handleTop} _hover={{ bg: "#008000" }} color="brand.bg">
+      <Button role="button" onClick={handleTop} mt={4} bg="brand.btn" color="brand.bg" _hover={{ bg: "#789b8b" }}>
         {title}
       </Button>
     </Link>
   );
 };
 
-export default ButtonSecondary;
+export default Botao;

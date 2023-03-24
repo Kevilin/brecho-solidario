@@ -9,7 +9,7 @@ import { GetData } from "../../helpers/helpers";
 
 const MotionBox = motion(Box);
 
-const MoreDetails = ({ res }) => {
+const MaisDetalhes = ({ res }) => {
   //Get userkey state
   const [userKey, setUserKey] = useState();
   const { deleteDataFirebase } = GetData();
@@ -142,4 +142,4 @@ const MoreDetails = ({ res }) => {
   );
 };
 
-export default MoreDetails;
+export default MaisDetalhes;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Box, Stack, Text, Button, Image, ButtonGroup } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import collage from "../../assets/images/cabide.png";
-import ButtonPrimary from "../../components/Button";
+import Botao from "../../components/Botao";
 
 //Firebase
 import { GetData } from "../../helpers/helpers";
@@ -30,7 +30,7 @@ const Home = () => {
               </Box>
             </Text>
             <ButtonGroup>
-              <ButtonPrimary route="explorar" title="Preciso de doações" />
+              <Botao route="explorar" title="Preciso de doações" />
               <Link to="publicar">
                 <Button role="button" mt={4} bg="rgba(158, 194, 177, 0.31)" color="#66AD8C" _hover="">
                   Quero doar

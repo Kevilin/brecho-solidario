@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { Box, Stack, Text, Image } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import Form from "../Submit/Form";
+import Form from "./Form";
 
 const MotionBox = motion(Box);
 
-const Submit = () => {
+const Postagem = () => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
     //eslint-disable-next-line
@@ -35,4 +35,4 @@ const Submit = () => {
   );
 };
 
-export default Submit;
+export default Postagem;

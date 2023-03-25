@@ -2,11 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Stack, Image, UnorderedList, ListItem, Button } from "@chakra-ui/react";
 import { RiHomeHeartFill } from "react-icons/ri";
-import { useUserAuth } from "../../context/userAuthContext";
 
 import logo from "../../assets/images/logo.png";
-
-console.log(useUserAuth.email);
 
 const NavBar = () => {
   return (

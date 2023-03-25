@@ -19,7 +19,7 @@ const Logout = () => {
   return (
     <><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       <div className="p-4 box mt-3 text-center">
-        Hello Welcome <br />
+        Hello {user.displayName} <br />
       </div>
       <div className="d-grid gap-2">
         <Button variant="primary" onClick={handleLogout}>

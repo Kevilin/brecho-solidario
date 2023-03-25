@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Stack, Image, UnorderedList, ListItem, Button } from "@chakra-ui/react";
 import { RiHomeHeartFill } from "react-icons/ri";
+import { useUserAuth } from "../../context/userAuthContext";
 
 import logo from "../../assets/images/logo.png";
+
+console.log(useUserAuth.email);
 
 const NavBar = () => {
   return (
@@ -34,9 +37,14 @@ const NavBar = () => {
           </ListItem>
         </UnorderedList>
       </Box>
-      <Link to="/brecho-solidario/publicar">
+      <Link to="/brecho-solidario/login">
         <Button bg="brand.btn" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#008000" }}>
-          Doar!
+          Login
+        </Button>
+      </Link>
+      <Link to="/brecho-solidario/logout">
+        <Button bg="brand.btn" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#008000" }}>
+          Logout
         </Button>
       </Link>
     </Stack>

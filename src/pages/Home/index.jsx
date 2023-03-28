@@ -30,7 +30,6 @@ const Home = () => {
               </Link>
             </ButtonGroup>
           </Box>
-          {/* Images */}
           <Box>
             <Image src={collage} p={40} loading="lazy" mt={10} />
           </Box>

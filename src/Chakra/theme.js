@@ -15,7 +15,7 @@ export default extendTheme({
       btn: "#8CB09F",
       text: "#343A40",
       btntwo: "#A74602",
-      alojadoresbg: "rgba(158, 194, 177, 0.24)",
+      topobg: "rgba(158, 194, 177, 0.24)",
       footerbg: "#23292A",
       description: "#716D6D",
       maps: "#1A73E8",

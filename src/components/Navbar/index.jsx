@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Stack, Image, UnorderedList, ListItem, Button } from "@chakra-ui/react";
-import { RiHomeHeartFill } from "react-icons/ri";
-
 import logo from "../../assets/images/logo.png";
 
 const NavBar = () => {
@@ -37,11 +35,6 @@ const NavBar = () => {
       <Link to="/brecho-solidario/login">
         <Button bg="brand.btn" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#008000" }}>
           Login
-        </Button>
-      </Link>
-      <Link to="/brecho-solidario/logout">
-        <Button bg="brand.btn" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#008000" }}>
-          Logout
         </Button>
       </Link>
     </Stack>

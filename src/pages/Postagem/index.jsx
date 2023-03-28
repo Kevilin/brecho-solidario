@@ -8,7 +8,6 @@ const MotionBox = motion(Box);
 const Postagem = () => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    //eslint-disable-next-line
   }, []);
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>

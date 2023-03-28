@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { Box, Stack, Text, Button, Image, ButtonGroup } from "@chakra-ui/react";
@@ -6,18 +6,10 @@ import { motion } from "framer-motion";
 import collage from "../../assets/images/cabide.png";
 import Botao from "../../components/Botao";
 
-//Firebase
-import { GetData } from "../../helpers/helpers";
 const MotionBox = motion(Box);
 
 const Home = () => {
-  const { getDataFirebase, data } = GetData();
-  //Get data from Host.logical
-  useEffect(() => {
-    getDataFirebase();
-    window.scrollTo({ top: 0 });
-    //eslint-disable-next-line
-  }, []);
+
   return (
     <>
       <MotionBox as="main" initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }} transition={{ delay: 0.5 }} mt="5rem">
@@ -26,7 +18,7 @@ const Home = () => {
             <Text as="h1" color="brand.text" fontSize={{ base: "2rem", md: "2.5rem" }} fontWeight="700" m="1.5rem 0" lineHeight="1.8" textAlign="left">
               Encontre roupas ou doe as suas para quem precisa!
               <Box fontSize="1.5rem" fontWeight="500" as="p">
-                Negocie de uma forma fácil e totalmente gratuita! 👕
+                Negocie de uma forma fácil e totalmente gratuita!
               </Box>
             </Text>
             <ButtonGroup>

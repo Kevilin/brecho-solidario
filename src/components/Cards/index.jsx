@@ -8,7 +8,7 @@ import { Avatar } from "@chakra-ui/avatar";
 const MotionBox = motion(Box);
 
 const Cards = ({ post }) => {
-  const { name, title, address, locality, surname, qtd_pecas, estado_peca, urlLink } = post.data().inputs;
+  const { name, title, address, locality, surname, qtd_pecas, urlLink } = post.data().inputs;
 
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>

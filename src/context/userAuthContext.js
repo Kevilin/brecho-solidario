@@ -23,6 +23,7 @@ export function UserAuthContextProvider({ children }) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
   function logOut() {
+    window.localStorage.setItem("text", "");
     return signOut(auth);
   }
   function googleSignIn() {

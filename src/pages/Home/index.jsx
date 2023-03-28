@@ -5,10 +5,13 @@ import { Box, Stack, Text, Button, Image, ButtonGroup } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import collage from "../../assets/images/cabide.png";
 import Botao from "../../components/Botao";
+import { useUserAuth } from "../../context/userAuthContext";
 
 const MotionBox = motion(Box);
 
 const Home = () => {
+
+  const {usuario} = useUserAuth();
 
   return (
     <>
@@ -23,11 +26,17 @@ const Home = () => {
             </Text>
             <ButtonGroup>
               <Botao route="explorar" title="Preciso de doações" />
+              {usuario ?
               <Link to="publicar">
                 <Button role="button" mt={4} bg="rgba(158, 194, 177, 0.31)" color="#66AD8C" _hover="">
                   Quero doar
                 </Button>
-              </Link>
+              </Link> :
+              <Link to="login">
+                <Button role="button" mt={4} bg="rgba(158, 194, 177, 0.31)" color="#66AD8C" _hover="">
+                  Quero doar
+                </Button>
+              </Link> }
             </ButtonGroup>
           </Box>
           <Box>

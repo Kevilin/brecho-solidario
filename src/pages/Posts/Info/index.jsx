@@ -10,7 +10,6 @@ const Info = () => {
 
   useEffect(() => {
     getDataFirebase();
-    //eslint-disable-next-line
   }, []);
   const filterInfo = data.filter((param) => param.id === params.id);
 

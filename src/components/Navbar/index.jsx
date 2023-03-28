@@ -39,7 +39,7 @@ const NavBar = () => {
 
       {usuario ?
       <>
-        <p>E-mail: {usuario.email}</p>
+        <p>{usuario.email}</p>
         <Button bg="brand.btn" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#008000" }} onClick={logOut}>
           Logout
         </Button>

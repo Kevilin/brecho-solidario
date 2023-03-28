@@ -8,6 +8,7 @@ import Cards from "../../components/Cards";
 const Posts = () => {
   const { getDataFirebase, data } = GetData();
 
+  
   useEffect(() => {
     getDataFirebase();
     window.scrollTo({ top: 0 });

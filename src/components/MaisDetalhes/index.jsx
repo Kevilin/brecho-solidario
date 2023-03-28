@@ -6,23 +6,24 @@ import { BiPackage, BiCloset, BiMap } from "react-icons/bi";
 import { SiWhatsapp } from "react-icons/si";
 import { motion } from "framer-motion";
 import { GetData } from "../../helpers/helpers";
+import { useUserAuth } from "../../context/userAuthContext";
 
 const MotionBox = motion(Box);
 
 const MaisDetalhes = ({ res }) => {
-  //Get userkey state
+
   const [userKey, setUserKey] = useState();
   const { deleteDataFirebase } = GetData();
   const { name, title, locality, urlLink, surname, qtd_pecas, estado_peca, phone, address, others, description, user } = res.data().inputs;
   const urlLinkThumb = urlLink.slice(1, 3);
+  const {usuario} = useUserAuth();
   const houseSpecs = [
     { title: "Quantidade de peças", name: qtd_pecas, icon: BiPackage },
     { title: "Estado da peça", name: estado_peca, icon: BiCloset },
   ];
-  //Get user key
+
   useEffect(() => {
-    const key = window.localStorage.getItem("text");
-    setUserKey(key);
+    setUserKey(usuario.uid);
   }, []);
 
   return (

@@ -35,34 +35,44 @@ const Login = () => {
 
   return (
     <>
-      <div className="container-login">
-        <div className="p-4 box">
-          <h2 className="mb-3">Firebase Auth Login</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control
+      <div className="container">
+        <div className="container-login">
+          <form onSubmit={handleSubmit} className="login-form">
+            <span className="login-form-title"> Bem vindo ao Brechó Solidário</span>
+            <br></br>
+            <div className="wrap-input">
+              <span>E-mail</span>
+              <input
+                className={email !== "" ? "has-val input" : "input"}
                 type="email"
-                placeholder="Email address"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </Form.Group>
+            </div>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Control
+            <div className="wrap-input">
+              <span>Senha</span>
+              <input
+                className={password !== "" ? "has-val input" : "input"}
                 type="password"
-                placeholder="Password"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-            </Form.Group>
-
-            <div className="d-grid gap-2">
-              <Button variant="primary" type="Submit">
-                Log In
-              </Button>
             </div>
-          </Form>
-          <hr />
+
+            <div className="container-login-form-btn">
+              <button type="submit" className="login-form-btn">
+                Login
+              </button>
+            </div>
+
+            <div className="text-center">
+              <span className="txt1">Não possui conta? </span>
+              <Link className="txt2" to="/brecho-solidario/signup">
+                Criar conta.
+              </Link>
+            </div>
+          </form>
           <div>
             <GoogleButton
               className="g-btn"
@@ -70,9 +80,6 @@ const Login = () => {
               onClick={handleGoogleSignIn}
             />
           </div>
-        </div>
-        <div className="p-4 box mt-3 text-center">
-          Don't have an account? <Link to="/brecho-solidario/signup">Sign up</Link>
         </div>
       </div>
     </>

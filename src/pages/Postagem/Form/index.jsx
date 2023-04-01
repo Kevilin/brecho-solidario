@@ -34,8 +34,8 @@ const Form = () => {
         <FormControl isRequired>
           <FormLabel>Número de WhatsApp para que possam entrar em contato (8 caracteres)</FormLabel>
           <InputGroup>
-            <InputLeftAddon children="+55 519" bg="green.400" color="brand.bg" />
-            <Input type="number" name="phone" bg="#E5E5E5" placeholder="Digite seu telefone sem o 9" onChange={handleChange} />
+            <InputLeftAddon children="+55" bg="green.400" color="brand.bg" />
+            <Input type="number" name="phone" bg="#E5E5E5" placeholder="Número de Whatsapp com ddd" onChange={handleChange} />
           </InputGroup>
         </FormControl>
       </Box>

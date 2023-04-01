@@ -16,7 +16,6 @@ const Postagem = () => {
           Obrigado por doar!
           <span role="img" aria-labelledby="emoji-house">
             <Image
-              src="https://res.cloudinary.com/dqp3lvyd0/image/upload/v1639582003/smiling-face-with-smiling-eyes_1f60a_t7lnqb.png"
               paddingLeft={1}
               width="2.3rem"
               display="unset"

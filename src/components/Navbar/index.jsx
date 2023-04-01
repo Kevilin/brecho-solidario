@@ -25,9 +25,9 @@ const NavBar = () => {
       w="100%"
     >
       {user && user.photoURL ?
-      <Link to="/brecho-solidario">
-        <Image width="50px" display={{ base: "none", md: "flex"}} src={user.photoURL} alt="foto de perfil" className="logo-header" />
-      </Link> :
+      <div className="fotoPerfil">
+          <img src={user && user.photoURL} alt="foto de perfil" />
+      </div> :
       <Link to="/brecho-solidario">
         <Image width="50px" display={{ base: "none", md: "flex" }} src={logo} alt="cabide-logo" className="logo-header" />
       </Link>

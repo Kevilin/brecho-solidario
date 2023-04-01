@@ -6,7 +6,7 @@ const db = getFirestore(app);
 
 export const GetData = () => {
   const [data, setData] = useState([]);
-  //Get data from firebase
+
   const getDataFirebase = async () => {
     const data = await getDocs(collection(db, "posts"));
     setData(data.docs);

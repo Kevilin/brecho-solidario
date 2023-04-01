@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import { Box, Stack, Text, Image } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import Form from "../Submit/Form";
+import Form from "./Form";
 
 const MotionBox = motion(Box);
 
-const Submit = () => {
+const Postagem = () => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    //eslint-disable-next-line
   }, []);
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
@@ -17,7 +16,6 @@ const Submit = () => {
           Obrigado por doar!
           <span role="img" aria-labelledby="emoji-house">
             <Image
-              src="https://res.cloudinary.com/dqp3lvyd0/image/upload/v1639582003/smiling-face-with-smiling-eyes_1f60a_t7lnqb.png"
               paddingLeft={1}
               width="2.3rem"
               display="unset"
@@ -35,4 +33,4 @@ const Submit = () => {
   );
 };
 
-export default Submit;
+export default Postagem;

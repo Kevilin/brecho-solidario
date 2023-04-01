@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Stack, Box, InputGroup, InputLeftAddon, Input, FormControl, FormLabel, Textarea, Text, Icon, Button, Image, HStack } from "@chakra-ui/react";
+import { Stack, Box, InputGroup, InputLeftAddon, Input, FormControl, FormLabel, Text, Icon, Button, Image, HStack } from "@chakra-ui/react";
 import { VStack, Spinner } from "@chakra-ui/react";
 import { MdCloudUpload } from "react-icons/md";
 import InputComp from "../../../components/Input";
@@ -12,7 +12,7 @@ import { Navigate } from "react-router-dom";
 const Form = () => {
   const [uploadStatus, setUploadStatus] = useState(false);
   const { handleSubmit, handleChange, onFileChange, urlLink, toSubmit, redirect } = HandleClick();
-  //Read inputs of fyle
+
   const handleChanges = (e) => {
     if (e.target.files.length === 0) {
       return null;
@@ -34,8 +34,8 @@ const Form = () => {
         <FormControl isRequired>
           <FormLabel>Número de WhatsApp para que possam entrar em contato (8 caracteres)</FormLabel>
           <InputGroup>
-            <InputLeftAddon children="+55 519" bg="green.400" color="brand.bg" />
-            <Input type="number" name="phone" bg="#E5E5E5" placeholder="Digite seu telefone sem o 9" onChange={handleChange} />
+            <InputLeftAddon children="+55" bg="green.400" color="brand.bg" />
+            <Input type="number" name="phone" bg="#E5E5E5" placeholder="Número de Whatsapp com ddd" onChange={handleChange} />
           </InputGroup>
         </FormControl>
       </Box>

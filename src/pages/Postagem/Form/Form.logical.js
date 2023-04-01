@@ -4,18 +4,19 @@ import { nanoid } from "nanoid";
 import app from "../../../firebase/firebaseConfig";
 import { getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { useUserAuth } from "../../../context/userAuthContext";
 const storage = getStorage(app);
 const db = getFirestore(app);
 
 export const HandleClick = () => {
-  //eslint-disable-next-line
-  const [user, setUser] = useState(nanoid());
+  const {usuario} = useUserAuth(); 
+  const [user, setUser] = useState(usuario.uid);
   const [toSubmit, setToSubmit] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [inputs, setInputs] = useState({});
   const [urlLink, setUrlLink] = useState([]);
 
-  //Upload post firebase
+  //Upload do post para o Firebase
   const firebaseAdd = async () => {
     try {
       await addDoc(collection(db, "posts"), {
@@ -26,9 +27,7 @@ export const HandleClick = () => {
     }
   };
 
-  //When the form is submit
   const handleSubmit = (e) => {
-    handleStorage();
     const validate = inputs.name === "" || inputs.address === "" || inputs.locality === "" || inputs.surname === "" || inputs.phone.length < 8 || inputs.title === "";
     e.preventDefault();
     if (validate) {
@@ -42,15 +41,15 @@ export const HandleClick = () => {
     firebaseAdd();
   };
 
-  //Upload images to Firebase
+  //Upload das imagens para o Firebase
   const onFileChange = async (e) => {
     if (urlLink.length < 3) {
-      //Read file
+      //lê arquivo
       const file = e.target.files[0];
       //Upload
       const fileRef = ref(storage, `documents/${file.name}`);
       const upload = await uploadBytes(fileRef, file);
-      //Get the url for download
+      //Pega a URL para download
       const urlLinkAwait = await getDownloadURL(fileRef);
       setUrlLink((prevUrlLink) => [...prevUrlLink, { urlLink: urlLinkAwait, imageData: upload.ref.name }]);
     } else {
@@ -58,12 +57,7 @@ export const HandleClick = () => {
     }
   };
 
-  //Create key for user
-  const handleStorage = () => {
-    window.localStorage.setItem("text", user);
-  };
-
-  //Read and save inputs value on state
+  //Lê e salva os inputs
   const handleChange = (e) => {
     setInputs({
       ...inputs,

@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Stack, Image, UnorderedList, ListItem, Button } from "@chakra-ui/react";
-import { RiHomeHeartFill } from "react-icons/ri";
-
 import logo from "../../assets/images/logo.png";
+import { useUserAuth } from "../../context/userAuthContext";
 
 const NavBar = () => {
+
+  const { usuario, logOut} = useUserAuth()
+
   return (
     <Stack
       as="nav"
@@ -34,11 +36,22 @@ const NavBar = () => {
           </ListItem>
         </UnorderedList>
       </Box>
-      <Link to="/brecho-solidario/publicar">
-        <Button bg="brand.btn" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#008000" }}>
-          Doar!
+
+      {usuario ?
+      <>
+        <p>{usuario.email}</p>
+        <Button bg="brand.btn" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#008000" }} onClick={logOut}>
+          Logout
         </Button>
+      </>
+      :
+      <>
+      <Link to="/brecho-solidario/login">
+      <Button bg="brand.btn" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#008000" }}>
+        Login
+      </Button>
       </Link>
+      </>}
     </Stack>
   );
 };

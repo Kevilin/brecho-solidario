@@ -11,7 +11,7 @@ const MotionBox = motion(Box);
 
 const Home = () => {
 
-  const {usuario} = useUserAuth();
+  const {user} = useUserAuth();
 
   return (
     <>
@@ -26,7 +26,7 @@ const Home = () => {
             </Text>
             <ButtonGroup>
               <Botao route="explorar" title="Preciso de doações" />
-              {usuario ?
+              {user ?
               <Link to="publicar">
                 <Button role="button" mt={4} bg="rgba(158, 194, 177, 0.31)" color="#66AD8C" _hover="">
                   Quero doar

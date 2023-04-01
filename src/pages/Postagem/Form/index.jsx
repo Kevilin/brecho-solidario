@@ -27,21 +27,22 @@ const Form = () => {
   return (
     <Stack as="form" w="100%" p={{ md: "6", base: "0" }} spacing={6} onSubmit={handleSubmit}>
       <Stack direction={{ base: "column", md: "row" }}>
-        <InputComp nameprop="name" label="Nome" type="text" place="" value={handleChange} />
-        <InputComp nameprop="surname" label="Sobrenome" type="text" place="" value={handleChange} />
+        <InputComp nameprop="nome_usuario" label="Nome" type="text" place="" value={handleChange} />
+        <InputComp nameprop="sobrenome_usuario" label="Sobrenome" type="text" place="" value={handleChange} />
       </Stack>
       <Box>
         <FormControl isRequired>
           <FormLabel>Número de WhatsApp para que possam entrar em contato (8 caracteres)</FormLabel>
           <InputGroup>
             <InputLeftAddon children="+55" bg="green.400" color="brand.bg" />
-            <Input type="number" name="phone" bg="#E5E5E5" placeholder="Número de Whatsapp com ddd" onChange={handleChange} />
+            <Input type="number" name="telefone" bg="#E5E5E5" placeholder="Número de Whatsapp com ddd" onChange={handleChange} />
           </InputGroup>
         </FormControl>
       </Box>
-      <InputComp nameprop="title" label="Título da publicação" type="text" place="" value={handleChange} />
-      <InputComp nameprop="locality" label="Cidade" type="text" place="" value={handleChange} />
-      <InputComp nameprop="address" label="Endereço" type="text" place="" value={handleChange} />
+      <InputComp nameprop="titulo_post" label="Título da publicação" type="text" place="" value={handleChange} />
+      <InputComp nameprop="cidade" label="Cidade" type="text" place="" value={handleChange} />
+      <InputComp nameprop="endereco" label="Endereço" type="text" place="" value={handleChange} />
+      <InputComp nameprop="cep" label="CEP" type="text" place="" value={handleChange} />
       {/* Características */}
       <Stack direction={{ base: "column", md: "row" }}>
         <SelectComp title="Quantidade" options={[1, 2, 3, 4, 5]} handleChange={handleChange} name="qtd_pecas" />
@@ -83,7 +84,7 @@ const Form = () => {
           </Text>
         </Box>
         <FormLabel>
-        <InputComp nameprop="description" label="Descrição" type="text" place="" value={handleChange} />
+        <InputComp nameprop="descricao_post" label="Descrição" type="text" place="" value={handleChange} />
         </FormLabel>
       </Box>
       {toSubmit ? <Confetti /> : null}

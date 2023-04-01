@@ -8,15 +8,15 @@ import { Avatar } from "@chakra-ui/avatar";
 const MotionBox = motion(Box);
 
 const Cards = ({ post }) => {
-  const { name, title, address, locality, surname, qtd_pecas, urlLink, user } = post.data().inputs;
+  const { nome_usuario, titulo_post, endereco, cidade, sobrenome_usuario, qtd_pecas, urlLink } = post.data().inputs;
 
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
       <Box maxW="sm" borderRadius="xl" w={{ base: "100%", md: "23rem" }} p={4} bg="brand.bg" overflow="hidden" minH="25rem" boxShadow="xl">
         <HStack alignItems="center" mb={4}>
-          <Avatar size="sm" name={name} />
+          <Avatar size="sm" name={nome_usuario} />
           <Text as="h5">
-            {name} {surname}
+            {nome_usuario} {sobrenome_usuario}
           </Text>
         </HStack>
         <Box overflow="hidden" rounded="20px" maxHeight="20rem">
@@ -34,13 +34,13 @@ const Cards = ({ post }) => {
           />
         </Box>
         <Text m=".5rem 0" as="h4" fontSize="xl" fontWeight="600" w="20rem">
-          {title}
+          {titulo_post}
         </Text>
         <HStack color="gray" fontSize="sm">
           <span role="img">
             <BiMap />
           </span>
-          <Text as="span">{address} - {locality}</Text>
+          <Text as="span">{endereco} - {cidade}</Text>
         </HStack>
         <Divider mt={2} borderColor="gray" m=".5rem 0" />
         <HStack as="span" fontSize="sm">

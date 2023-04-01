@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { Box, Stack, Image, UnorderedList, ListItem, Button } from "@chakra-ui/react";
 import logo from "../../assets/images/logo.png";
 import { useUserAuth } from "../../context/userAuthContext";
+import "./Navbar.css";
 
 const NavBar = () => {
 
-  const { usuario, logOut} = useUserAuth()
+  const { user, logOut} = useUserAuth()
 
   return (
     <Stack
@@ -23,9 +24,14 @@ const NavBar = () => {
       bg="#0E76A8"
       w="100%"
     >
+      {user && user.photoURL ?
+      <Link to="/brecho-solidario">
+        <Image width="50px" display={{ base: "none", md: "flex"}} src={user.photoURL} alt="foto de perfil" className="logo-header" />
+      </Link> :
       <Link to="/brecho-solidario">
         <Image width="50px" display={{ base: "none", md: "flex" }} src={logo} alt="cabide-logo" className="logo-header" />
       </Link>
+      }
       <Box>
         <UnorderedList display="flex" fontFamily="Inter" fontWeight="500" fontSize={{ base: ".8rem", md: "1rem" }}>
           <ListItem listStyleType="none" _hover={{ color: "brand.btn", transition: "0.2s" }} m={4}>
@@ -37,9 +43,9 @@ const NavBar = () => {
         </UnorderedList>
       </Box>
 
-      {usuario ?
+      {user ?
       <>
-        <p>{usuario.email}</p>
+      <p>{user.email}</p>
         <Button bg="brand.btn" display={{ base: "none", md: "flex" }} color="brand.bg" _hover={{ bg: "#008000" }} onClick={logOut}>
           Logout
         </Button>

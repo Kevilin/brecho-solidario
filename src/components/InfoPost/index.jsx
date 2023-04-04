@@ -4,7 +4,7 @@ import { Box, Center, Spinner } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 import {GetConexaoFirebase} from "../../helpers/helpers";
 import MaisDetalhes from "../MaisDetalhes";
-const Info = () => {
+const InfoPost = () => {
   const params = useParams();
   const { getDadosPostsFirebase, data } = GetConexaoFirebase();
 
@@ -26,4 +26,4 @@ const Info = () => {
   );
 };
 
-export default Info;
+export default InfoPost;

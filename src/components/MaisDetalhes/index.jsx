@@ -5,7 +5,7 @@ import { Stack, HStack, Text, Box, Avatar, Image, Icon, Link, Button } from "@ch
 import { BiPackage, BiCloset, BiMap } from "react-icons/bi";
 import { SiWhatsapp } from "react-icons/si";
 import { motion } from "framer-motion";
-import { GetData } from "../../helpers/helpers";
+import {GetConexaoFirebase} from "../../helpers/helpers";
 import { useUserAuth } from "../../context/userAuthContext";
 
 const MotionBox = motion(Box);
@@ -13,7 +13,7 @@ const MotionBox = motion(Box);
 const MaisDetalhes = ({ res }) => {
 
   const [userKey, setUserKey] = useState();
-  const { deleteDataFirebase } = GetData();
+  const { deletaPostFirebase } = GetConexaoFirebase();
   const { nome_usuario, sobrenome_usuario, titulo_post, cidade, urlLink, qtd_pecas, estado_peca, telefone, endereco, outros, descricao_post, usuario } = res.data().inputs;
   const urlLinkThumb = urlLink.slice(1, 3);
   const {user} = useUserAuth();
@@ -131,7 +131,7 @@ const MaisDetalhes = ({ res }) => {
             </Link>
             {userKey === usuario ? (
               <LinkRouter to="/brecho-solidario/explorar/">
-                <Text onClick={() => deleteDataFirebase(res.id)} w="100%" paddingTop={4} fontWeight={500} color="red.400">
+                <Text onClick={() => deletaPostFirebase(res.id)} w="100%" paddingTop={4} fontWeight={500} color="red.400">
                   Remover publicação
                 </Text>
               </LinkRouter>

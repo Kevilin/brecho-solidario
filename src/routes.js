@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Posts from "./pages/Posts";
 import MeusPosts from "./pages/MeusPosts";
 import Postagem from "./pages/Postagem";
-import Info from "./pages/Posts/Info";
+import Info from "./components/DetalhesPost";
 import Error from "./pages/Error";
 import NotifiqueMe from "./pages/NotifiqueMe";
 import Login from "./components/Login";
@@ -14,7 +14,7 @@ function Rotas() {
     return (
         <Routes>
             <Route path="/brecho-solidario/" element={<Home />} />
-            <Route path="/brecho-solidario/Explorar" element={<Posts />} />
+            <Route path="/brecho-solidario/explorar" element={<Posts />} />
             <Route path="/brecho-solidario/meus-posts" element={<MeusPosts />} />
             <Route path="/brecho-solidario/notifique-me" element={<NotifiqueMe />} />
             <Route path="/brecho-solidario/login" element={<Login />} />

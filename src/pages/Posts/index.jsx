@@ -2,14 +2,14 @@ import React from "react";
 import { useEffect } from "react";
 import { Stack, Text, Grid, Box, Spinner, Center} from "@chakra-ui/react";
 import { nanoid } from "nanoid";
-import { GetData } from "../Home/Hosts/Host.logical";
+import {GetConexaoFirebase} from "../../helpers/helpers";
 import Cards from "../../components/Cards";
 
 const Posts = () => {
-  const { getDataFirebase, data } = GetData();
+  const { getDadosPostsFirebase, data } = GetConexaoFirebase();
 
   useEffect(() => {
-    getDataFirebase();
+    getDadosPostsFirebase();
     window.scrollTo({ top: 0 });
   }, []);
 

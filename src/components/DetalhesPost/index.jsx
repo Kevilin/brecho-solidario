@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Center, Spinner } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
-import { GetData } from "../../../helpers/helpers";
-import MaisDetalhes from "../../../components/MaisDetalhes";
+import {GetConexaoFirebase} from "../../helpers/helpers";
+import MaisDetalhes from "../MaisDetalhes";
 const Info = () => {
   const params = useParams();
-  const { getDataFirebase, data } = GetData();
+  const { getDadosPostsFirebase, data } = GetConexaoFirebase();
 
   useEffect(() => {
-    getDataFirebase();
+    getDadosPostsFirebase();
   }, []);
   const filterInfo = data.filter((param) => param.id === params.id);
 

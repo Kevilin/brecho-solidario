@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
+import MeusPosts from "./pages/MeusPosts";
 import Postagem from "./pages/Postagem";
 import Info from "./pages/Posts/Info";
 import Error from "./pages/Error";
@@ -14,6 +15,7 @@ function Rotas() {
         <Routes>
             <Route path="/brecho-solidario/" element={<Home />} />
             <Route path="/brecho-solidario/Explorar" element={<Posts />} />
+            <Route path="/brecho-solidario/meus-posts" element={<MeusPosts />} />
             <Route path="/brecho-solidario/notifique-me" element={<NotifiqueMe />} />
             <Route path="/brecho-solidario/login" element={<Login />} />
             <Route path="/brecho-solidario/signup" element={<Signup />} />

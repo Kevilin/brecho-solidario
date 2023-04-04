@@ -14,7 +14,7 @@ const Cards = ({ post }) => {
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
       <Box maxW="sm" borderRadius="xl" w={{ base: "100%", md: "23rem" }} p={4} bg="brand.bg" overflow="hidden" minH="25rem" boxShadow="xl">
         <HStack alignItems="center" mb={4}>
-          <Avatar size="sm" name={nome_usuario} />
+          <Avatar size="md" name={nome_usuario} />
           <Text as="h5">
             {nome_usuario} {sobrenome_usuario}
           </Text>
@@ -50,7 +50,7 @@ const Cards = ({ post }) => {
             </HStack>
           )}
         </HStack>
-        <Link to={`posts/${post.id}`}>
+        <Link to={`/brecho-solidario/explorar/posts/${post.id}`}>
           <Button role="button" w="100%" mt={4} bg="brand.btn" onClick={() => window.scrollTo({ top: 0 })} color="brand.bg" _hover={{ bg: "#789b8b" }}>
             Ver mais
           </Button>

@@ -5,7 +5,6 @@ import { MdCloudUpload } from "react-icons/md";
 import InputComp from "../../../components/Input";
 import SelectComp from "../../../components/Select";
 import { HandleClick } from "./Form.logical";
-import { nanoid } from "nanoid";
 import Confetti from "../../../components/Confetti";
 import { Navigate } from "react-router-dom";
 
@@ -70,7 +69,7 @@ const Form = () => {
               <Spinner />
             ) : (
               urlLink.map((data) => (
-                <VStack p={3} key={nanoid()}>
+                <VStack p={3} key={data.id}>
                   <Text>{data.imageData}</Text>
                   <Box w="70px" h="80px" overflow="hidden">
                     <Image loading="lazy" src={data.urlLink} borderRadius="md" objectFit="cover" w="100%" />

@@ -13,7 +13,6 @@ export const GetConexaoFirebase = () => {
     setData(data.docs);
   };
 
-
   const deletaPostFirebase = async (idPost) => {
     await deleteDoc(doc(db, "posts", `${idPost}`));
     localStorage.clear();

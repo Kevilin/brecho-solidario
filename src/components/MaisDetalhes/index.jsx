@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link as LinkRouter } from "react-router-dom";
-import { nanoid } from "nanoid";
 import { Stack, HStack, Text, Box, Avatar, Image, Icon, Link, Button } from "@chakra-ui/react";
 import { BiPackage, BiCloset, BiMap } from "react-icons/bi";
 import { SiWhatsapp } from "react-icons/si";
@@ -60,7 +59,7 @@ const MaisDetalhes = ({ res }) => {
                 {urlLink.length === 0
                   ? null
                   : urlLinkThumb.map((thumbnails) => (
-                      <Box key={nanoid()} overflow="hidden" w={{ base: "none", lg: "80%" }} minHeight={{ base: "none", lg: "35vh" }} maxHeight="25vh" borderRadius="md">
+                      <Box key={thumbnails.id} overflow="hidden" w={{ base: "none", lg: "80%" }} minHeight={{ base: "none", lg: "35vh" }} maxHeight="25vh" borderRadius="md">
                         <Image
                           loading="lazy"
                           src={thumbnails.urlLink}
@@ -94,7 +93,7 @@ const MaisDetalhes = ({ res }) => {
                 </Text>
                 <Stack direction={{ base: "column", md: "row" }} flexWrap="wrap" p={3}>
                   {houseSpecs.map((data) => (
-                    <HStack key={nanoid()} p="1rem 0">
+                    <HStack key={data.id} p="1rem 0">
                       <Icon
                         as={data.icon}
                         color={data.name === "green.100"}

@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { Stack, Text, Grid, Box, Spinner, Center} from "@chakra-ui/react";
-import { nanoid } from "nanoid";
 import {GetConexaoFirebase} from "../../helpers/helpers";
 import Cards from "../../components/Cards";
 import { useUserAuth } from "../../context/userAuthContext";
@@ -34,7 +33,7 @@ const MeusPosts = () => {
               </Center>
             ) : (
               somenteMeusPosts.map((post) => {
-                return <Cards key={nanoid()} post={post} />;
+                return <Cards key={post.id} post={post} />;
               })
             )}
           </Grid>

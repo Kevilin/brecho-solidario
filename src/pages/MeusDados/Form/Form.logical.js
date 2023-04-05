@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import app from "../../../firebase/firebaseConfig";
 import { getFirestore } from "firebase/firestore";
 import { useUserAuth } from "../../../context/userAuthContext";
@@ -11,11 +11,12 @@ export const HandleClick = () => {
   const [toSubmit, setToSubmit] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [inputs, setInputs] = useState({});
+  const [email, setEmail] = useState(user.email);
 
-  //Upload do post para o Firebase
+  //Upload do usuario para o Firebase
   const firebaseAdd = async () => {
     try {
-      await addDoc(collection(db, "usuarios"), {
+      await addDoc(getDocs(db, "usuarios"), {
         inputs,
       });
     } catch (e) {
@@ -43,6 +44,7 @@ export const HandleClick = () => {
       ...inputs,
       [e.target.name]: e.target.value,
       usuario,
+      email,
     });
   };
 

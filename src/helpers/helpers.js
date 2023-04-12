@@ -7,6 +7,7 @@ const db = getFirestore(app);
 export const GetConexaoFirebase = () => {
 
   const [data, setData] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
 
   const getDadosPostsFirebase = async () => {
     const data = await getDocs(collection(db, "posts"));
@@ -18,5 +19,5 @@ export const GetConexaoFirebase = () => {
     localStorage.clear();
   };
 
-  return { getDadosPostsFirebase, deletaPostFirebase, data };
+  return { getDadosPostsFirebase, deletaPostFirebase, data, usuarios };
 };

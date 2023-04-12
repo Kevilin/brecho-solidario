@@ -12,6 +12,7 @@ import Signup from "./components/Signup/Signup";
 import MeusDados from "./pages/MeusDados";
 
 function Rotas() {
+
     return (
         <Routes>
             <Route path="/brecho-solidario/" element={<Home />} />

@@ -2,13 +2,16 @@ import React, { useEffect } from "react";
 import { Box, Stack, Text, Image } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Form from "./Form";
+import { useUserAuth } from "../../context/userAuthContext";
 
 const MotionBox = motion(Box);
 
 const MeusDados = () => {
+
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
+
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
       <Stack textAlign="center" p={8} mt="4rem">

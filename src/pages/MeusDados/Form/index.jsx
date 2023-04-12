@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Stack, Box, InputGroup, InputLeftAddon, Input, FormControl, FormLabel, Text, Button, HStack } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 import InputComp from "../../../components/Input";
@@ -6,11 +6,15 @@ import SelectComp from "../../../components/Select";
 import { HandleClick } from "./Form.logical";
 import Confetti from "../../../components/Confetti";
 import { Navigate } from "react-router-dom";
+import {GetConexaoFirebase} from "../../../helpers/helpers";
+import { useUserAuth } from "../../../context/userAuthContext";
 
 const Form = () => {
-  const [uploadStatus, setUploadStatus] = useState(false);
+  const { user } = useUserAuth();
   const { handleSubmit, handleChange, toSubmit, redirect } = HandleClick();
-
+  const [existeUsuario, setExisteUsuario] = useState();
+  const urlBase = 'http://127.0.0.1:8000/api';
+    
   return (
     <Stack as="form" w="100%" p={{ md: "6", base: "0" }} spacing={6} onSubmit={handleSubmit}>
       <Stack direction={{ base: "column", md: "row" }}>
@@ -37,7 +41,7 @@ const Form = () => {
       <InputComp nameprop="complemento" label="Complemento" type="text" place="" value={handleChange} />
       </Stack>
       {toSubmit ? <Confetti /> : null}
-      <Button role="button" disabled={uploadStatus && true} type="submit" mt={4} p={2} w="100%" bg="brand.btn" color="brand.bg" _hover={{ bg: "#789b8b" }}>
+      <Button role="button" type="submit" mt={4} p={2} w="100%" bg="brand.btn" color="brand.bg" _hover={{ bg: "#789b8b" }}>
         {toSubmit ? (
           <>
             <HStack alignItems={"center"}>

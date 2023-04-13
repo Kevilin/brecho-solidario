@@ -14,6 +14,8 @@ const Home = () => {
 
   const {user} = useUserAuth();
   const [existeUsuario, setExisteUsuario] = useState();
+  const [dadosUsuario, setDadosUsuario] = useState([]);
+  const [requestMade, setRequestMade] = useState(false);
   const urlBase = 'http://127.0.0.1:8000/api';
 
   useEffect(() => {
@@ -45,8 +47,18 @@ const Home = () => {
       });
   }
 
-  if (existeUsuario !== true && existeUsuario !== undefined && user) {
+  if (existeUsuario == false && user) {
     criaUsuarioViaAPI()
+  }
+
+  if (existeUsuario == true && user && !requestMade) {
+    axios.get(`${urlBase}/usuario/dados/busca/${user.uid}`)
+      .then(response => {
+        setDadosUsuario(response.data);
+        setRequestMade(true);
+        console.log(dadosUsuario);
+      })
+      .catch(error => console.log(error));
   }
 
   return (

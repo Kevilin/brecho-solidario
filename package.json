@@ -2,7 +2,7 @@
   "name": "brecho-solidario",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kmr.dev.br/brecho-solidario/",
+  "homepage": "https://brecho-solidario.kmr.dev.br",
   "dependencies": {
     "@chakra-ui/react": "^1.7.2",
     "@emotion/react": "^11.7.0",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { Box, Stack, Text, Button, Image, ButtonGroup } from "@chakra-ui/react";
@@ -6,12 +6,60 @@ import { motion } from "framer-motion";
 import collage from "../../assets/images/cabide.png";
 import Botao from "../../components/Botao";
 import { useUserAuth } from "../../context/userAuthContext";
+import axios from 'axios';
 
 const MotionBox = motion(Box);
 
 const Home = () => {
 
-  const {usuario} = useUserAuth();
+  const {user} = useUserAuth();
+  const [existeUsuario, setExisteUsuario] = useState();
+  const [dadosUsuario, setDadosUsuario] = useState([]);
+  const [requestMade, setRequestMade] = useState(false);
+  const urlBase = 'http://127.0.0.1:8000/api';
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (user && user.uid) {
+          const response = await axios.get(`${urlBase}/usuario/dados/existe/${user.uid}`);
+          setExisteUsuario(response.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+  });
+
+  const criaUsuarioViaAPI = async () => {
+    const data = {
+      "uidFirebase": user.uid,
+      "email": user.email
+    };
+
+    axios.post(`${urlBase}/usuario/dados/insere`, data)
+      .then(response => {
+        console.log(`novo usuario criado: ${user.uid}`);
+      })
+      .catch(error => {
+        console.log('erro ao criar usuario');
+      });
+  }
+
+  if (existeUsuario == false && user) {
+    criaUsuarioViaAPI()
+  }
+
+  if (existeUsuario == true && user && !requestMade) {
+    axios.get(`${urlBase}/usuario/dados/busca/${user.uid}`)
+      .then(response => {
+        setDadosUsuario(response.data);
+        setRequestMade(true);
+        console.log(dadosUsuario);
+      })
+      .catch(error => console.log(error));
+  }
 
   return (
     <>
@@ -26,7 +74,7 @@ const Home = () => {
             </Text>
             <ButtonGroup>
               <Botao route="explorar" title="Preciso de doações" />
-              {usuario ?
+              {user ?
               <Link to="publicar">
                 <Button role="button" mt={4} bg="rgba(158, 194, 177, 0.31)" color="#66AD8C" _hover="">
                   Quero doar

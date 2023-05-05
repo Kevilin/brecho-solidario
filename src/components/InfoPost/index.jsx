@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Center, Spinner } from "@chakra-ui/react";
-import { nanoid } from "nanoid";
-import { GetData } from "../../../helpers/helpers";
-import MaisDetalhes from "../../../components/MaisDetalhes";
-const Info = () => {
+import {GetConexaoFirebase} from "../../helpers/helpers";
+import MaisDetalhes from "../MaisDetalhes";
+const InfoPost = () => {
   const params = useParams();
-  const { getDataFirebase, data } = GetData();
+  const { getDadosPostsFirebase, data } = GetConexaoFirebase();
 
   useEffect(() => {
-    getDataFirebase();
+    getDadosPostsFirebase();
   }, []);
   const filterInfo = data.filter((param) => param.id === params.id);
 
@@ -20,10 +19,10 @@ const Info = () => {
           <Spinner size="xl" color="brand.btn" m="0 auto" />
         </Center>
       ) : (
-        filterInfo.map((res) => <MaisDetalhes res={res} key={nanoid()} />)
+        filterInfo.map((res) => <MaisDetalhes res={res} key={res.id} />)
       )}
     </Box>
   );
 };
 
-export default Info;
+export default InfoPost;

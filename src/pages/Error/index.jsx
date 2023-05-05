@@ -10,7 +10,7 @@ const Error = () => {
       <Text textAlign="center" fontWeight="600" color="brand.text" p={3} fontSize={{ base: "1.5rem", md: "2rem" }}>
         Ops, parece que a rota que você digitou não existe!
       </Text>
-      <Link to="/brecho-solidario">
+      <Link to="/">
         <Text color="brand.text">&larr; Voltar ao início</Text>
       </Link>
     </VStack>

@@ -16,7 +16,7 @@ const Signup = () => {
     setError("");
     try {
       await signUp(email, password);
-      navigate("/brecho-solidario/");
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }
@@ -57,7 +57,7 @@ const Signup = () => {
 
             <div className="text-center">
               <span className="txt1">Já possui conta? </span>
-              <Link className="txt2" to="/brecho-solidario/login">
+              <Link className="txt2" to="/login">
                 Acessar com Email e Senha.
               </Link>
             </div>

@@ -1,0 +1,52 @@
+import { useState } from "react";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import app from "../../../firebase/firebaseConfig";
+import { getFirestore } from "firebase/firestore";
+import { useUserAuth } from "../../../context/userAuthContext";
+const db = getFirestore(app);
+
+export const HandleClick = () => {
+  const {user} = useUserAuth(); 
+  const [usuario, setUsuario] = useState(user.uid);
+  const [toSubmit, setToSubmit] = useState(false);
+  const [redirect, setRedirect] = useState(false);
+  const [inputs, setInputs] = useState({});
+  const [email, setEmail] = useState(user.email);
+
+  //Upload do usuario para o Firebase
+  const firebaseAdd = async () => {
+    try {
+      await addDoc(getDocs(db, "usuarios"), {
+        inputs,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    const validate = inputs.nome_usuario === "" || inputs.sobrenome_usuario === "" || inputs.endereco === "" || inputs.cidade === "" || inputs.cep === "" ||  inputs.telefone.length < 8;
+    e.preventDefault();
+    if (validate) {
+      return alert("Revise todos os campos");
+    }
+    setToSubmit(true);
+    setTimeout(() => {
+      setToSubmit(false);
+      setRedirect(true);
+    }, 3000);
+    firebaseAdd();
+  };
+
+  //Lê e salva os inputs
+  const handleChange = (e) => {
+    setInputs({
+      ...inputs,
+      [e.target.name]: e.target.value,
+      usuario,
+      email,
+    });
+  };
+
+  return { handleSubmit, handleChange, firebaseAdd, toSubmit, redirect };
+};

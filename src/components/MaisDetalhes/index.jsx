@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link as LinkRouter } from "react-router-dom";
-import { nanoid } from "nanoid";
 import { Stack, HStack, Text, Box, Avatar, Image, Icon, Link, Button } from "@chakra-ui/react";
 import { BiPackage, BiCloset, BiMap } from "react-icons/bi";
 import { SiWhatsapp } from "react-icons/si";
 import { motion } from "framer-motion";
-import { GetData } from "../../helpers/helpers";
+import {GetConexaoFirebase} from "../../helpers/helpers";
 import { useUserAuth } from "../../context/userAuthContext";
 
 const MotionBox = motion(Box);
@@ -13,17 +12,17 @@ const MotionBox = motion(Box);
 const MaisDetalhes = ({ res }) => {
 
   const [userKey, setUserKey] = useState();
-  const { deleteDataFirebase } = GetData();
-  const { name, title, locality, urlLink, surname, qtd_pecas, estado_peca, phone, address, others, description, user } = res.data().inputs;
+  const { deletaPostFirebase } = GetConexaoFirebase();
+  const { nome_usuario, sobrenome_usuario, titulo_post, cidade, urlLink, qtd_pecas, estado_peca, telefone, endereco, outros, descricao_post, usuario } = res.data().inputs;
   const urlLinkThumb = urlLink.slice(1, 3);
-  const {usuario} = useUserAuth();
+  const {user} = useUserAuth();
   const houseSpecs = [
     { title: "Quantidade de peças", name: qtd_pecas, icon: BiPackage },
     { title: "Estado da peça", name: estado_peca, icon: BiCloset },
   ];
 
   useEffect(() => {
-    setUserKey(usuario.uid);
+    setUserKey(user.uid);
   }, []);
 
   return (
@@ -32,16 +31,16 @@ const MaisDetalhes = ({ res }) => {
         <Box w="90%" m="0 auto">
           <Stack>
             <HStack>
-              <Avatar name={name} mr={3} />
+              <Avatar name={nome_usuario} mr={3} />
               <Text display="flex" alignItems="center">
-                {name} {surname}
+                {nome_usuario} {sobrenome_usuario}
               </Text>
             </HStack>
             <Text as="h1" fontSize={{ base: "2rem", md: "2.5rem" }} fontWeight="700" pt={3} lineHeight="1.2" textAlign="left">
-              {title}
+              {titulo_post}
             </Text>
             <Text as="p" mt={3} color="brand.description">
-              <Icon as={BiMap} /> {address} - {locality}
+              <Icon as={BiMap} /> {endereco} - {cidade}
             </Text>
             <Stack direction={{ base: "column", lg: "row" }} w="100%" h={{ base: "none", lg: "70vh" }} overflow="hidden" alignItems="center">
               <Box w={{ base: "none", lg: "70%" }} minHeight={{ base: "none", lg: "50vh" }} borderRadius="xl" overflow="hidden">
@@ -60,7 +59,7 @@ const MaisDetalhes = ({ res }) => {
                 {urlLink.length === 0
                   ? null
                   : urlLinkThumb.map((thumbnails) => (
-                      <Box key={nanoid()} overflow="hidden" w={{ base: "none", lg: "80%" }} minHeight={{ base: "none", lg: "35vh" }} maxHeight="25vh" borderRadius="md">
+                      <Box key={thumbnails.id} overflow="hidden" w={{ base: "none", lg: "80%" }} minHeight={{ base: "none", lg: "35vh" }} maxHeight="25vh" borderRadius="md">
                         <Image
                           loading="lazy"
                           src={thumbnails.urlLink}
@@ -84,7 +83,7 @@ const MaisDetalhes = ({ res }) => {
                   Descrição:
                 </Text>
                 <Text as="p" mt={3} color="brand.description" minW="100%">
-                  {description}
+                  {descricao_post}
                 </Text>
               </Box>
               {/* Detalhes */}
@@ -94,7 +93,7 @@ const MaisDetalhes = ({ res }) => {
                 </Text>
                 <Stack direction={{ base: "column", md: "row" }} flexWrap="wrap" p={3}>
                   {houseSpecs.map((data) => (
-                    <HStack key={nanoid()} p="1rem 0">
+                    <HStack key={data.id} p="1rem 0">
                       <Icon
                         as={data.icon}
                         color={data.name === "green.100"}
@@ -112,7 +111,7 @@ const MaisDetalhes = ({ res }) => {
                 </Stack>
                 <Stack>
                   <Text as="p" mt={3} color="brand.description">
-                    {others}
+                    {outros}
                   </Text>
                 </Stack>
               </Box>
@@ -120,7 +119,7 @@ const MaisDetalhes = ({ res }) => {
           </Stack>
           <Stack direction="row" spacing={{ base: 1, lg: 2 }} flexWrap="wrap" alignItems="center">
             <Link
-              href={`https://api.whatsapp.com/send?phone=5551${phone}&text=Ol%C3%A1%2C%20vi%20que%20voc%C3%AA%20anunciou%20uma%20roupa%20no%20Brech%C3%B3%20Solid%C3%A1rio.%20Ainda%20est%C3%A1%20dispon%C3%ADvel%3F`}
+              href={`https://api.whatsapp.com/send?telefone=5551${telefone}&text=Ol%C3%A1%2C%20vi%20que%20voc%C3%AA%20anunciou%20uma%20roupa%20no%20Brech%C3%B3%20Solid%C3%A1rio.%20Ainda%20est%C3%A1%20dispon%C3%ADvel%3F`}
               _hover=""
               isExternal
               w={{ base: "100%", lg: "15rem" }}
@@ -129,9 +128,9 @@ const MaisDetalhes = ({ res }) => {
                 Contato por Whatsapp <Icon as={SiWhatsapp} ml={2} />
               </Button>
             </Link>
-            {userKey === user ? (
-              <LinkRouter to="/brecho-solidario/explorar/">
-                <Text onClick={() => deleteDataFirebase(res.id)} w="100%" paddingTop={4} fontWeight={500} color="red.400">
+            {userKey === usuario ? (
+              <LinkRouter to="/explorar/">
+                <Text onClick={() => deletaPostFirebase(res.id)} w="100%" paddingTop={4} fontWeight={500} color="red.400">
                   Remover publicação
                 </Text>
               </LinkRouter>

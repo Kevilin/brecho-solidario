@@ -50,7 +50,7 @@ const Cards = ({ post }) => {
             </HStack>
           )}
         </HStack>
-        <Link to={`/brecho-solidario/explorar/posts/${post.id}`}>
+        <Link to={`/explorar/posts/${post.id}`}>
           <Button role="button" w="100%" mt={4} bg="brand.btn" onClick={() => window.scrollTo({ top: 0 })} color="brand.bg" _hover={{ bg: "#789b8b" }}>
             Ver mais
           </Button>

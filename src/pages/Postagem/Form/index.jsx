@@ -107,7 +107,7 @@ const Form = () => {
       </Button>
       {redirect && (
         <Box>
-          <Navigate to="/brecho-solidario/explorar" />
+          <Navigate to="/explorar" />
         </Box>
       )}
     </Stack>

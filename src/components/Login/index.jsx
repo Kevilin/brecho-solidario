@@ -18,7 +18,7 @@ const Login = () => {
     setError("");
     try {
       await logIn(email, password);
-      navigate("/brecho-solidario/");
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
@@ -27,7 +27,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await googleSignIn();
-      navigate("/brecho-solidario/");
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -68,7 +68,7 @@ const Login = () => {
 
             <div className="text-center">
               <span className="txt1">Não possui conta? </span>
-              <Link className="txt2" to="/brecho-solidario/signup">
+              <Link className="txt2" to="/signup">
                 Criar conta.
               </Link>
             </div>

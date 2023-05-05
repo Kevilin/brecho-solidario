@@ -15,16 +15,16 @@ function Rotas() {
 
     return (
         <Routes>
-            <Route path="/brecho-solidario/" element={<Home />} />
-            <Route path="/brecho-solidario/explorar" element={<Posts />} />
-            <Route path="/brecho-solidario/meus-posts" element={<MeusPosts />} />
-            <Route path="/brecho-solidario/meus-dados" element={<MeusDados />} />
-            <Route path="/brecho-solidario/notifique-me" element={<NotifiqueMe />} />
-            <Route path="/brecho-solidario/login" element={<Login />} />
-            <Route path="/brecho-solidario/signup" element={<Signup />} />
-            <Route path="/brecho-solidario/publicar" element={<Postagem />} />
-            <Route path="/brecho-solidario/explorar/posts/:id" element={<InfoPost />} />
-            <Route path="/brecho-solidario/*" element={<Error />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/explorar" element={<Posts />} />
+            <Route path="/meus-posts" element={<MeusPosts />} />
+            <Route path="/meus-dados" element={<MeusDados />} />
+            <Route path="/notifique-me" element={<NotifiqueMe />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/publicar" element={<Postagem />} />
+            <Route path="/explorar/posts/:id" element={<InfoPost />} />
+            <Route path="/*" element={<Error />} />
         </Routes>
     );
 }

@@ -13,7 +13,7 @@ const Footer = () => {
         </Box>
         <StackDivider p={1} />
         <Stack direction="row" spacing={5} color="brand.btn">
-          <Link to="/brecho-solidario/notifique-me">Não encontrei o que queria!</Link>
+          <Link to="/notifique-me">Não encontrei o que queria!</Link>
         </Stack>
       </Stack>
       <Text textAlign="center" fontSize=".9rem" p={3} bg="brand.footerbg" color="brand.bg">

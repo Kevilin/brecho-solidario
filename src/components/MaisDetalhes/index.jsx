@@ -129,7 +129,7 @@ const MaisDetalhes = ({ res }) => {
               </Button>
             </Link>
             {userKey === usuario ? (
-              <LinkRouter to="/brecho-solidario/explorar/">
+              <LinkRouter to="/explorar/">
                 <Text onClick={() => deletaPostFirebase(res.id)} w="100%" paddingTop={4} fontWeight={500} color="red.400">
                   Remover publicação
                 </Text>

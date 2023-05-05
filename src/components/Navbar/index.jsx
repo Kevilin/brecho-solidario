@@ -36,13 +36,13 @@ const NavBar = () => {
       w="100%"
     >
       {user && user.photoURL ? (
-        <Link to="/brecho-solidario">
+        <Link to="/">
           <div className="fotoPerfil">
             <img src={user && user.photoURL} alt="foto de perfil" />
           </div>
         </Link>
       ) : (
-        <Link to="/brecho-solidario">
+        <Link to="/">
           <Image
             width="50px"
             display={{ base: "none", md: "flex" }}
@@ -64,14 +64,14 @@ const NavBar = () => {
             _hover={{ color: "brand.btn", transition: "0.2s" }}
             m={4}
           >
-            <Link to="/brecho-solidario">Inicio</Link>
+            <Link to="/">Inicio</Link>
           </ListItem>
           <ListItem
             listStyleType="none"
             m={4}
             _hover={{ color: "brand.btn", transition: "0.2s" }}
           >
-            <Link to="/brecho-solidario/explorar">Explorar</Link>
+            <Link to="/explorar">Explorar</Link>
           </ListItem>
         </UnorderedList>
       </Box>
@@ -84,10 +84,10 @@ const NavBar = () => {
             </MenuButton>
             <MenuList>
               <MenuGroup title={user.email}>
-                <Link to="/brecho-solidario/meus-dados">
+                <Link to="/meus-dados">
                   <MenuItem>Endereço e contato</MenuItem>
                 </Link>
-                <Link to="/brecho-solidario/meus-posts">
+                <Link to="/meus-posts">
                   <MenuItem>Meus Posts </MenuItem>
                 </Link>
                 <MenuItem onClick={logOut}>Sair</MenuItem>
@@ -97,7 +97,7 @@ const NavBar = () => {
         </>
       ) : (
         <>
-          <Link to="/brecho-solidario/login">
+          <Link to="/login">
             <Button
               bg="brand.btn"
               display={{ base: "none", md: "flex" }}

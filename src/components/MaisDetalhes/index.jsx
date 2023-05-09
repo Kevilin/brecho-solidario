@@ -42,15 +42,15 @@ const MaisDetalhes = ({ res }) => {
             <Text as="p" mt={3} color="brand.description">
               <Icon as={BiMap} /> {endereco} - {cidade}
             </Text>
-            <Stack direction={{ base: "column", lg: "row" }} w="100%" h={{ base: "none", lg: "70vh" }} overflow="hidden" alignItems="center">
-              <Box w={{ base: "none", lg: "70%" }} minHeight={{ base: "none", lg: "50vh" }} borderRadius="xl" overflow="hidden">
+            <Stack direction={{ base: "column", lg: "row" }} w="100%" h={{ base: "none", lg: "50vh" }} overflow="hidden" alignItems="center">
+              <Box w={{ base: "none", lg: "40%" }} minHeight={{ base: "none", lg: "50vh" }} borderRadius="xl" overflow="hidden">
                 <Image
                   loading="lazy"
                   src={urlLink.length === 0 ? null : urlLink[0].urlLink}
                   alt={urlLink.length === 0 ? null : urlLink[0].imageData}
                   objectFit="cover"
-                  w="100%"
-                  h="100%"
+                  w="80%"
+                  h="80%"
                   style={{ scale: "1", transition: "0.5s ease-in-out" }}
                   _hover={{ transform: "scale(1.1)" }}
                 />

@@ -4,11 +4,13 @@ import { Box, Divider, HStack, Text, Icon, Image, Button } from "@chakra-ui/reac
 import { motion } from "framer-motion";
 import { BiPackage, BiMap } from "react-icons/bi";
 import { Avatar } from "@chakra-ui/avatar";
+import { useUserAuth } from "../../context/userAuthContext";
 
 const MotionBox = motion(Box);
 
 const Cards = ({ post }) => {
   const { nome_usuario, titulo_post, endereco, cidade, sobrenome_usuario, qtd_pecas, urlLink } = post.data().inputs;
+  const {user} = useUserAuth();
 
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
@@ -50,11 +52,17 @@ const Cards = ({ post }) => {
             </HStack>
           )}
         </HStack>
-        <Link to={`/explorar/posts/${post.id}`}>
+        {user ?
+              <Link to={`/explorar/posts/${post.id}`}>
+              <Button role="button" w="100%" mt={4} bg="brand.btn" onClick={() => window.scrollTo({ top: 0 })} color="brand.bg" _hover={{ bg: "#789b8b" }}>
+                Ver mais
+              </Button>
+            </Link> :
+        <Link to={`/login`}>
           <Button role="button" w="100%" mt={4} bg="brand.btn" onClick={() => window.scrollTo({ top: 0 })} color="brand.bg" _hover={{ bg: "#789b8b" }}>
             Ver mais
           </Button>
-        </Link>
+        </Link>}
       </Box>
     </MotionBox>
   );

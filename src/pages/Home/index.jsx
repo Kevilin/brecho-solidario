@@ -16,7 +16,7 @@ const Home = () => {
   const [usuarioApto, setUsuarioApto] = useState();
   const [dadosUsuario, setDadosUsuario] = useState([]);
   const [requestMade, setRequestMade] = useState(false);
-  const urlBase = "http://api-brecho-solidario.kmr.dev.br/api";
+  const urlBase = "https://api-brecho-solidario.kmr.dev.br/api";
 
   useEffect(() => {
     const fetchData = async () => {

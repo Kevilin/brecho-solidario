@@ -14,7 +14,7 @@ export const HandleClick = () => {
   const [inputs, setInputs] = useState({});
   const [email, setEmail] = useState(user.email);
 
-  const urlBase = 'http://api-brecho-solidario.kmr.dev.br/api';
+  const urlBase = 'https://api-brecho-solidario.kmr.dev.br/api';
 
   //Upload do usuario para o Firebase
   const firebaseAdd = async () => {

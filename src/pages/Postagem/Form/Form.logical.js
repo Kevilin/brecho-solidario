@@ -57,6 +57,7 @@ export const HandleClick = () => {
     inputs.estado = dadosUsuario.estado
     inputs.logradouro = dadosUsuario.logradouro
     inputs.whatsapp = dadosUsuario.whatsapp
+    inputs.fotoDoador = user.photoURL
     if (validate) {
       return alert("Revise todos os campos");
     }

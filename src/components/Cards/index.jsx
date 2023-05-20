@@ -9,14 +9,14 @@ import { useUserAuth } from "../../context/userAuthContext";
 const MotionBox = motion(Box);
 
 const Cards = ({ post }) => {
-  const { nome, titulo_post, logradouro, cidade, sobrenome, qtd_pecas, urlLink } = post.data().inputs;
+  const { nome, titulo_post, logradouro, cidade, sobrenome, qtd_pecas, urlLink, fotoDoador } = post.data().inputs;
   const {user} = useUserAuth();
 
   return (
     <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1, y: -20 }}>
       <Box maxW="sm" borderRadius="xl" w={{ base: "100%", md: "23rem" }} p={4} bg="brand.bg" overflow="hidden" minH="25rem" boxShadow="xl">
         <HStack alignItems="center" mb={4}>
-          <Avatar size="md" name={nome} />
+          {fotoDoador ? <Avatar src={fotoDoador} /> : <Avatar size="md" name={nome} />}
           <Text as="h5">
             {nome} {sobrenome}
           </Text>

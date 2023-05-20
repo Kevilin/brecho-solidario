@@ -37,6 +37,7 @@ const MaisDetalhes = ({ res }) => {
     outros,
     descricao_post,
     usuario,
+    fotoDoador
   } = res.data().inputs;
   const urlLinkThumb = urlLink.slice(1, 3);
   const { user } = useUserAuth();
@@ -62,7 +63,7 @@ const MaisDetalhes = ({ res }) => {
           <Box w="90%" m="0 auto">
             <Stack>
               <HStack>
-                <Avatar name={nome} mr={3} />
+                {fotoDoador ? <Avatar src={fotoDoador} mr={3} /> : <Avatar name={nome} mr={3} />}
                 <Text display="flex" alignItems="center">
                   {nome} {sobrenome}
                 </Text>

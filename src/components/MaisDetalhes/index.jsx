@@ -32,7 +32,7 @@ const MaisDetalhes = ({ res }) => {
     qtd_pecas,
     estado_peca,
     telefone,
-    endereco,
+    logradouro,
     outros,
     descricao_post,
     usuario,
@@ -45,7 +45,7 @@ const MaisDetalhes = ({ res }) => {
   ];
 
   const address = {
-    street: endereco,
+    street: logradouro,
     //neighborhood: "Sao Jose",
     city: cidade,
   };

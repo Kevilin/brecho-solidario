@@ -27,7 +27,7 @@ export const HandleClick = () => {
   };
 
   const handleSubmit = (e) => {
-    const validate = inputs.nome_usuario === "" || inputs.sobrenome_usuario === "" || inputs.endereco === "" || inputs.cidade === "" || inputs.cep === "" ||  inputs.telefone.length < 8 || inputs.titulo_post === "";
+    const validate = inputs.titulo_post === "";
     e.preventDefault();
     if (validate) {
       return alert("Revise todos os campos");

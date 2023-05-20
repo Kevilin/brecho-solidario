@@ -9,7 +9,7 @@ import { useUserAuth } from "../../context/userAuthContext";
 const MotionBox = motion(Box);
 
 const Cards = ({ post }) => {
-  const { nome_usuario, titulo_post, endereco, cidade, sobrenome_usuario, qtd_pecas, urlLink } = post.data().inputs;
+  const { nome_usuario, titulo_post, logradouro, cidade, sobrenome_usuario, qtd_pecas, urlLink } = post.data().inputs;
   const {user} = useUserAuth();
 
   return (
@@ -42,7 +42,7 @@ const Cards = ({ post }) => {
           <span role="img">
             <BiMap />
           </span>
-          <Text as="span">{endereco} - {cidade}</Text>
+          <Text as="span">{logradouro} - {cidade}</Text>
         </HStack>
         <Divider mt={2} borderColor="gray" m=".5rem 0" />
         <HStack as="span" fontSize="sm">

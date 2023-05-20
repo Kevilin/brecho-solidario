@@ -11,9 +11,7 @@ import { useUserAuth } from "../../../context/userAuthContext";
 
 const Form = () => {
   const { user } = useUserAuth();
-  const { handleSubmit, handleChange, toSubmit, redirect } = HandleClick();
-  const [existeUsuario, setExisteUsuario] = useState();
-  const urlBase = 'http://127.0.0.1:8000/api';
+  const { handleSubmit, handleChange, toSubmit, redirect,atualizaDadosUsuario } = HandleClick();
     
   return (
     <Stack as="form" w="100%" p={{ md: "6", base: "0" }} spacing={6} onSubmit={handleSubmit}>
@@ -32,13 +30,12 @@ const Form = () => {
       </Box>
       <InputComp nameprop="cep" label="CEP" type="text" place="" value={handleChange} />
       <Stack direction={{ base: "column", md: "row" }}>
+      <InputComp nameprop="logradouro" label="Logradouro" type="text" place="" value={handleChange} />
+      <InputComp nameprop="bairro" label="Bairro" type="text" place="" value={handleChange} />
+      </Stack>
+      <Stack direction={{ base: "column", md: "row" }}>
       <InputComp nameprop="cidade" label="Cidade" type="text" place="" value={handleChange} />
       <SelectComp title="Estado" options={["RS","SP"]} name="estado" handleChange={handleChange} />
-      </Stack>
-      <InputComp nameprop="logradouro" label="Logradouro" type="text" place="" value={handleChange} />
-      <Stack direction={{ base: "column", md: "row" }}>
-      <InputComp nameprop="numero" label="Número" type="text" place="" value={handleChange} />
-      <InputComp nameprop="complemento" label="Complemento" type="text" place="" value={handleChange} />
       </Stack>
       {toSubmit ? <Confetti /> : null}
       <Button role="button" type="submit" mt={4} p={2} w="100%" bg="brand.btn" color="brand.bg" _hover={{ bg: "#789b8b" }}>

@@ -17,7 +17,7 @@ export const HandleClick = () => {
   const [urlLink, setUrlLink] = useState([]);
   const [dadosUsuario, setDadosUsuario] = useState([]);
 
-  const urlBase = 'http://172.21.0.2:8001/api';
+  const urlBase = 'http://api-brecho-solidario.kmr.dev.br/api';
 
   //Upload do post para o Firebase
   const firebaseAdd = async () => {

@@ -16,7 +16,7 @@ import { SiWhatsapp } from "react-icons/si";
 import { motion } from "framer-motion";
 import { GetConexaoFirebase } from "../../helpers/helpers";
 import { useUserAuth } from "../../context/userAuthContext";
-import App from "../MapCard";
+import MapCard from "../MapCard";
 
 const MotionBox = motion(Box);
 
@@ -43,6 +43,12 @@ const MaisDetalhes = ({ res }) => {
     { title: "Quantidade de peças", name: qtd_pecas, icon: BiPackage },
     { title: "Estado da peça", name: estado_peca, icon: BiCloset },
   ];
+
+  const address = {
+    street: "Rua Bolivia",
+    neighborhood: "Sao Jose",
+    city: "Canoas",
+  };
 
   useEffect(() => {
     setUserKey(user.uid);
@@ -236,7 +242,7 @@ const MaisDetalhes = ({ res }) => {
           </Box>
         </Stack>
       </MotionBox>
-      <App />
+      <MapCard address={address} />
     </>
   );
 };

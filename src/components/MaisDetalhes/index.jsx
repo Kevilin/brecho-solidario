@@ -16,7 +16,7 @@ import { SiWhatsapp } from "react-icons/si";
 import { motion } from "framer-motion";
 import { GetConexaoFirebase } from "../../helpers/helpers";
 import { useUserAuth } from "../../context/userAuthContext";
-import MapCard from "../MapCard";
+import App from "../MapCard";
 
 const MotionBox = motion(Box);
 
@@ -236,7 +236,7 @@ const MaisDetalhes = ({ res }) => {
           </Box>
         </Stack>
       </MotionBox>
-      <MapCard />
+      <App />
     </>
   );
 };

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import Geocode from 'react-geocode';
 
 const MapCard = ({ address }) => {
   const mapContainerStyle = {
@@ -7,15 +8,27 @@ const MapCard = ({ address }) => {
     height: '300px',
   };
 
-  const center = {
-    lat: 0, // Latitude do endereço
-    lng: 0, // Longitude do endereço
-  };
+  const [center, setCenter] = useState(null);
+
+  useEffect(() => {
+    const getCoordinates = async () => {
+      try {
+        Geocode.setApiKey('AIzaSyC-ftlurTyS77Vwdd2pHJws9q__3ygadGY');
+        const response = await Geocode.fromAddress(`${address.street}, ${address.neighborhood} - ${address.city}`);
+        const { lat, lng } = response.results[0].geometry.location;
+        setCenter({ lat, lng });
+      } catch (error) {
+        console.log('Error fetching address coordinates:', error);
+      }
+    };
+
+    getCoordinates();
+  }, [address]);
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyC-ftlurTyS77Vwdd2pHJws9q__3ygadGY">
       <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={15}>
-        <Marker position={center} />
+        {center && <Marker position={center} />}
       </GoogleMap>
     </LoadScript>
   );
@@ -28,7 +41,7 @@ const App = () => {
     city: 'Canoas',
   };
 
-  const formattedAddress = `${address.city}`;
+  const formattedAddress = `${address.street}, ${address.neighborhood} - ${address.city}`;
 
   return (
     <div>

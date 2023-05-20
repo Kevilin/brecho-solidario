@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import Geocode from "react-geocode";
+import { Link as LinkRouter } from "react-router-dom";
+import { Text, Icon } from "@chakra-ui/react";
+import { BiMap } from "react-icons/bi";
 
 const MapCard = ({ address }) => {
   const mapContainerStyle = {
-    width: "400px",
-    height: "300px",
+    width: "800px",
+    height: "400px",
   };
 
   const formattedAddress = `${address.street}, ${address.neighborhood} - ${address.city}`;
@@ -31,7 +34,9 @@ const MapCard = ({ address }) => {
 
   return (
     <div>
-      <h1>{formattedAddress}</h1>
+      <Text as="p" mt={3} color="brand.description">
+        <Icon as={BiMap} /> {formattedAddress}
+      </Text>
       <br></br>
       <LoadScript googleMapsApiKey="AIzaSyC-ftlurTyS77Vwdd2pHJws9q__3ygadGY">
         <GoogleMap

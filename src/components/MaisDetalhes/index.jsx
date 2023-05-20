@@ -76,9 +76,6 @@ const MaisDetalhes = ({ res }) => {
               >
                 {titulo_post}
               </Text>
-              <Text as="p" mt={3} color="brand.description">
-                <Icon as={BiMap} /> {endereco} - {cidade}
-              </Text>
               <Stack
                 direction={{ base: "column", lg: "row" }}
                 w="100%"
@@ -103,6 +100,7 @@ const MaisDetalhes = ({ res }) => {
                     _hover={{ transform: "scale(1.1)" }}
                   />
                 </Box>
+                <MapCard address={address} />
                 <Stack display="flex" spacing={2}>
                   {urlLink.length === 0
                     ? null
@@ -242,7 +240,6 @@ const MaisDetalhes = ({ res }) => {
           </Box>
         </Stack>
       </MotionBox>
-      <MapCard address={address} />
     </>
   );
 };

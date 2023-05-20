@@ -40,8 +40,6 @@ export const HandleClick = () => {
       "estado": estado,
     };
 
-    console.log(data);
-
     axios.post(`${urlBase}/usuario/dados/atualiza`, data)
       .then(response => {
         console.log(`dados atualizados: ${user.uid}`);

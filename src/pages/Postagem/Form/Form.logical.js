@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import app from "../../../firebase/firebaseConfig";
 import { getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { useUserAuth } from "../../../context/userAuthContext";
+import axios from 'axios';
 const storage = getStorage(app);
 const db = getFirestore(app);
 
@@ -14,6 +15,9 @@ export const HandleClick = () => {
   const [redirect, setRedirect] = useState(false);
   const [inputs, setInputs] = useState({});
   const [urlLink, setUrlLink] = useState([]);
+  const [dadosUsuario, setDadosUsuario] = useState([]);
+
+  const urlBase = 'http://172.21.0.2:8001/api';
 
   //Upload do post para o Firebase
   const firebaseAdd = async () => {
@@ -26,9 +30,33 @@ export const HandleClick = () => {
     }
   };
 
+  const buscaDadosUsuario = async () => {
+    const fetchData = async () => {
+      try {
+        if (user && user.uid) {
+          const response = await axios.get(
+            `${urlBase}/usuario/dados/busca/${user.uid}`
+          );
+          setDadosUsuario(response.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  };
+
   const handleSubmit = (e) => {
     const validate = inputs.titulo_post === "";
     e.preventDefault();
+    inputs.nome = dadosUsuario.nome
+    inputs.sobrenome = dadosUsuario.sobrenome
+    inputs.cep = dadosUsuario.cep
+    inputs.cidade = dadosUsuario.cidade
+    inputs.bairro = dadosUsuario.bairro
+    inputs.estado = dadosUsuario.estado
+    inputs.logradouro = dadosUsuario.logradouro
+    inputs.whatsapp = dadosUsuario.whatsapp
     if (validate) {
       return alert("Revise todos os campos");
     }
@@ -58,11 +86,12 @@ export const HandleClick = () => {
 
   //Lê e salva os inputs
   const handleChange = (e) => {
+    buscaDadosUsuario();
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value,
       urlLink,
-      usuario,
+      usuario
     });
   };
 

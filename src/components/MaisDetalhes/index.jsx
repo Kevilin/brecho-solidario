@@ -45,9 +45,9 @@ const MaisDetalhes = ({ res }) => {
   ];
 
   const address = {
-    street: "Rua Bolivia",
-    neighborhood: "Sao Jose",
-    city: "Canoas",
+    street: endereco,
+    //neighborhood: "Sao Jose",
+    city: cidade,
   };
 
   useEffect(() => {
@@ -166,7 +166,7 @@ const MaisDetalhes = ({ res }) => {
                     Detalhes:
                   </Text>
                   <Stack
-                    direction={{ base: "column", md: "row" }}
+                    direction={{ base: "column", md: "column" }}
                     flexWrap="wrap"
                     p={3}
                   >
@@ -184,8 +184,8 @@ const MaisDetalhes = ({ res }) => {
                         <Text
                           as="h4"
                           fontWeight="600"
-                          color={data.name === "no" ? "red.400" : "green.400"}
-                          fontSize="1rem"
+                          color={"green.400"}
+                          fontSize="1.3rem"
                         >
                           {data.title} : {data.name}
                         </Text>

@@ -6,11 +6,8 @@ import SelectComp from "../../../components/Select";
 import { HandleClick } from "./Form.logical";
 import Confetti from "../../../components/Confetti";
 import { Navigate } from "react-router-dom";
-import {GetConexaoFirebase} from "../../../helpers/helpers";
-import { useUserAuth } from "../../../context/userAuthContext";
 
 const Form = () => {
-  const { user } = useUserAuth();
   const { handleSubmit, handleChange, toSubmit, redirect,atualizaDadosUsuario } = HandleClick();
     
   return (
@@ -35,7 +32,7 @@ const Form = () => {
       </Stack>
       <Stack direction={{ base: "column", md: "row" }}>
       <InputComp nameprop="cidade" label="Cidade" type="text" place="" value={handleChange} />
-      <SelectComp title="Estado" options={["RS","SP"]} name="estado" handleChange={handleChange} />
+      <SelectComp title="Estado" options={["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]} name="estado" handleChange={handleChange} />
       </Stack>
       {toSubmit ? <Confetti /> : null}
       <Button role="button" type="submit" mt={4} p={2} w="100%" bg="brand.btn" color="brand.bg" _hover={{ bg: "#789b8b" }}>
@@ -58,7 +55,7 @@ const Form = () => {
       </Button>
       {redirect && (
         <Box>
-          <Navigate to="/publicar" />
+          <Navigate to="/" />
         </Box>
       )}
     </Stack>

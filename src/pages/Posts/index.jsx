@@ -15,7 +15,7 @@ const Posts = () => {
   return (
     <Stack bg="#EAECEB" mt="4rem">
       <Box minHeight="100vh" mb={20}>
-        <Box bg="brand.topobg" p={10} mb={10}>
+        <Box bg="brand.topobg" p={8} mb={10}>
           <Text as="h1" fontSize={{ base: "1.5rem", md: "2.5rem" }} color="brand.text" textAlign="center" fontWeight="700" lineHeight="1.2">
             Encontre a roupa de sua preferência!
           </Text>

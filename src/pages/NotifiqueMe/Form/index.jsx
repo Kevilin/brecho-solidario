@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Stack, Box, InputGroup, InputLeftAddon, Input, FormControl, FormLabel, Text, Icon, Button, Image, HStack } from "@chakra-ui/react";
 import { VStack, Spinner } from "@chakra-ui/react";
-import { MdCloudUpload } from "react-icons/md";
 import InputComp from "../../../components/Input";
 import SelectComp from "../../../components/Select";
 import { HandleClick } from "./Form.logical";
@@ -10,7 +9,7 @@ import { Navigate } from "react-router-dom";
 
 const Form = () => {
   const [uploadStatus, setUploadStatus] = useState(false);
-  const { handleSubmit, handleChange, onFileChange, urlLink, toSubmit, redirect } = HandleClick();
+  const { handleSubmit, handleChange, onFileChange, toSubmit, redirect } = HandleClick();
 
   const handleChanges = (e) => {
     if (e.target.files.length === 0) {
@@ -46,12 +45,12 @@ const Form = () => {
             </HStack>
           </>
         ) : (
-          "Publicar!"
+          "Salvar"
         )}
       </Button>
       {redirect && (
         <Box>
-          <Navigate to="/explorar" />
+          <Navigate to="/" />
         </Box>
       )}
     </Stack>

@@ -5,15 +5,29 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <Stack flexWrap="wrap" h="2rem" p="1rem" mt="1rem" direction="row" as="footer" alignItems="center" justifyContent="space-between" bg="brand.footerbg">
-        <Box>
-          <Text as="h3" color="brand.btn" fontWeight="500">
-            Todos os direitos reservados. © {new Date().getFullYear()} Brechó Solidário.
-          </Text>
-        </Box>
-        <StackDivider p={1} />
-        <Stack direction="row" spacing={5} color="brand.btn">
-          <Link to="/notifique-me">Não encontrei o que queria!</Link>
+      <Stack
+        flexWrap="wrap"
+        h="auto"
+        p="1rem"
+        mt="1rem"
+        direction="column"
+        as="footer"
+        alignItems="center"
+        justifyContent="center"
+        bg="brand.footerbg"
+      >
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          spacing={1}
+          color="brand.btn"
+          textAlign="center"
+          justifyContent="space-between"
+        >
+          <Box>
+            <Text as="h3" color="brand.btn" fontWeight="500" textAlign="center" mb="1rem">
+              Todos os direitos reservados. © {new Date().getFullYear()} Brechó Solidário.
+            </Text>
+          </Box>
         </Stack>
       </Stack>
       <Text textAlign="center" fontSize=".9rem" p={3} bg="brand.footerbg" color="brand.bg">
@@ -31,6 +45,9 @@ const Footer = () => {
       </Text>
     </>
   );
+  
+
+
 };
 
 export default Footer;

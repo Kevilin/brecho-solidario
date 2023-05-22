@@ -1,6 +1,5 @@
 import React from "react";
 import { Stack, Box, Text, StackDivider } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -45,9 +44,6 @@ const Footer = () => {
       </Text>
     </>
   );
-  
-
-
 };
 
 export default Footer;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -11,22 +11,14 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuGroup,
-  IconButton,
-  useDisclosure,
-  useMediaQuery
+  MenuGroup
 } from "@chakra-ui/react";
-import { Text, Icon } from "@chakra-ui/react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BsPersonFill } from "react-icons/bs"; // Exemplo de ícone adicional
 import logo from "../../assets/images/logo.png";
 import { useUserAuth } from "../../context/userAuthContext";
 import "./Navbar.css";
 
 const NavBar = () => {
   const { user, logOut } = useUserAuth();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isDesktop] = useMediaQuery("(min-width: 768px)");
 
   return (
     <Stack
@@ -35,7 +27,7 @@ const NavBar = () => {
       top="0"
       zIndex={10}
       direction="row"
-      p=".4rem 2rem"
+      p=" .4rem 2rem"
       justifyContent="space-between"
       borderBottom="1px"
       borderColor="#716D6D"
@@ -60,8 +52,7 @@ const NavBar = () => {
           />
         </Link>
       )}
-
-      <Box display={{ base: "none", md: "block" }}>
+      <Box>
         <UnorderedList
           display="flex"
           fontFamily="Inter"
@@ -92,47 +83,24 @@ const NavBar = () => {
         </UnorderedList>
       </Box>
 
-      <Box display={{ base: "block", md: "none" }}>
-        <IconButton
-          icon={<Icon as={GiHamburgerMenu} />}
-          variant="ghost"
-          onClick={isOpen ? onClose : onOpen}
-        />
-      </Box>
-
       {user ? (
         <>
-          {isDesktop ? (
-            <Menu>
-              <MenuButton as={Button} colorScheme="blue">
-                Minha conta
-              </MenuButton>
-              <MenuList>
-                <MenuGroup title={user.email}>
-                  <Link to="/meus-dados">
-                    <MenuItem>
-                      <Text>Endereço e contato</Text>
-                    </MenuItem>
-                  </Link>
-                  <Link to="/meus-posts">
-                    <MenuItem>
-                      <Text>Meus Posts</Text>
-                    </MenuItem>
-                  </Link>
-                  <MenuItem onClick={logOut}>
-                    <Text>Sair</Text>
-                  </MenuItem>
-                </MenuGroup>
-              </MenuList>
-            </Menu>
-          ) : (
-            <Link to="/meus-dados">
-              <IconButton
-                icon={<Icon as={BsPersonFill} />}
-                variant="ghost"
-              />
-            </Link>
-          )}
+          <Menu>
+            <MenuButton as={Button} colorScheme="blue">
+              Minha conta
+            </MenuButton>
+            <MenuList>
+              <MenuGroup title={user.email}>
+                <Link to="/meus-dados">
+                  <MenuItem>Endereço e contato</MenuItem>
+                </Link>
+                <Link to="/meus-posts">
+                  <MenuItem>Meus Posts </MenuItem>
+                </Link>
+                <MenuItem onClick={logOut}>Sair</MenuItem>
+              </MenuGroup>
+            </MenuList>
+          </Menu>
         </>
       ) : (
         <>

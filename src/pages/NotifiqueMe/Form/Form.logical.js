@@ -19,10 +19,10 @@ export const HandleClick = () => {
 
   const urlBase = 'https://api-brecho-solidario.kmr.dev.br/api';
 
-  //Upload do post para o Firebase
+  //Upload da notificação para o Firebase
   const firebaseAdd = async () => {
     try {
-      await addDoc(collection(db, "posts"), {
+      await addDoc(collection(db, "filaNotificacoes"), {
         inputs,
       });
     } catch (e) {
@@ -46,18 +46,27 @@ export const HandleClick = () => {
     fetchData();
   };
 
+  const insereNotificacao = async (email, descricao, estadoPeca) => {
+    const data = {
+      "uidFirebase": user.uid,
+      "email": email,
+      "descricao": descricao,
+      "estadoPeca": estadoPeca,
+    };
+
+    axios.post(`${urlBase}/usuario/insereNotificacao`, data)
+      .then(response => {
+        console.log(`dados inseridos: ${user.uid}`);
+      })
+      .catch(error => {
+        console.log('erro ao atualizar dados');
+      });
+  }
+
   const handleSubmit = (e) => {
-    const validate = inputs.titulo_post === "";
+    const validate = inputs.descricao_procura === "";
     e.preventDefault();
-    inputs.nome = dadosUsuario.nome
-    inputs.sobrenome = dadosUsuario.sobrenome
-    inputs.cep = dadosUsuario.cep
-    inputs.cidade = dadosUsuario.cidade
-    inputs.bairro = dadosUsuario.bairro
-    inputs.estado = dadosUsuario.estado
-    inputs.logradouro = dadosUsuario.logradouro
-    inputs.whatsapp = dadosUsuario.whatsapp
-    inputs.fotoDoador = user.photoURL
+    inputs.email = dadosUsuario.email
     if (validate) {
       return alert("Revise todos os campos");
     }
@@ -67,22 +76,7 @@ export const HandleClick = () => {
       setRedirect(true);
     }, 3000);
     firebaseAdd();
-  };
-
-  //Upload das imagens para o Firebase
-  const onFileChange = async (e) => {
-    if (urlLink.length < 3) {
-      //lê arquivo
-      const file = e.target.files[0];
-      //Upload
-      const fileRef = ref(storage, `imagens-roupas/${file.name}`);
-      const upload = await uploadBytes(fileRef, file);
-      //Pega a URL para download
-      const urlParaDownload = await getDownloadURL(fileRef);
-      setUrlLink((prevUrlLink) => [...prevUrlLink, { urlLink: urlParaDownload, imageData: upload.ref.name }]);
-    } else {
-      return alert("Só é possivel inserir 3 imagens.");
-    }
+    insereNotificacao(dadosUsuario.email, inputs.descricao_procura, inputs.estado_peca);
   };
 
   //Lê e salva os inputs
@@ -91,10 +85,9 @@ export const HandleClick = () => {
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value,
-      urlLink,
       usuario
     });
   };
 
-  return { handleSubmit, handleChange, onFileChange, firebaseAdd, urlLink, toSubmit, redirect };
+  return { handleSubmit, handleChange, firebaseAdd, urlLink, toSubmit, redirect };
 };

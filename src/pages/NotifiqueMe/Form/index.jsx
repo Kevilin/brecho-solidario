@@ -26,7 +26,7 @@ const Form = () => {
     <>
     <Stack as="form" w="100%" p={{ md: "6", base: "0" }} spacing={6} onSubmit={handleSubmit}>
       {/* Características */}
-      <InputComp nameprop="descricaoProcura" label="Descrição da roupa" type="text" place="Ex: Casaco cinza" value={handleChange} />
+      <InputComp nameprop="descricao_procura" label="Descrição da roupa" type="text" place="Ex: Casaco cinza" value={handleChange} />
       <Stack direction={{ base: "column", md: "row" }}>
         <SelectComp title="Estado da peça" options={["Bastante usada","Pouco usada", "Semi nova"]} name="estado_peca" handleChange={handleChange} />
       </Stack>
@@ -54,7 +54,7 @@ const Form = () => {
         </Box>
       )}
     </Stack>
-    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
     </>
   );
 };

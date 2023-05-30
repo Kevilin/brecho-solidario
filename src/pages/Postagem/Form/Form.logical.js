@@ -46,6 +46,21 @@ export const HandleClick = () => {
     fetchData();
   };
 
+  const notificaSeNecessario = async (descricao, estadoPeca) => {
+    const data = {
+      "descricao": descricao,
+      "estadoPeca": estadoPeca,
+    };
+
+    axios.post(`${urlBase}/usuario/notificaSeNecessario`, data)
+      .then(response => {
+        console.log(`notificação realizada: ${user.uid}`);
+      })
+      .catch(error => {
+        console.log('erro ao atualizar dados');
+      });
+  }
+
   const handleSubmit = (e) => {
     const validate = inputs.titulo_post === "";
     e.preventDefault();
@@ -67,6 +82,7 @@ export const HandleClick = () => {
       setRedirect(true);
     }, 3000);
     firebaseAdd();
+    notificaSeNecessario(inputs.titulo_post, inputs.estado_peca);
   };
 
   //Upload das imagens para o Firebase

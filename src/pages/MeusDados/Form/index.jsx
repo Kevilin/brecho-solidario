@@ -95,7 +95,7 @@ const Form = () => {
               bg="#E5E5E5"
               placeholder="Número de Whatsapp com ddd"
               onChange={handleChange}
-              value={preFilledData?.whatsapp}
+              defaultValue={preFilledData?.whatsapp}
             />
           </InputGroup>
         </FormControl>

@@ -1,7 +1,7 @@
 import React from "react";
 import { FormControl, Select, FormLabel, Box } from "@chakra-ui/react";
 
-const SelectComp = ({ title, options, name, handleChange }) => {
+const SelectComp = ({ title, options, name, handleChange}) => {
   return (
     <FormControl>
       <FormLabel>{title}</FormLabel>

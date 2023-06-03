@@ -27,7 +27,7 @@ const NavBar = () => {
       top="0"
       zIndex={10}
       direction="row"
-      p=" .4rem 2rem"
+      p=".4rem 2rem"
       justifyContent="space-between"
       borderBottom="1px"
       borderColor="#716D6D"
@@ -35,6 +35,7 @@ const NavBar = () => {
       bg="#0E76A8"
       w="100%"
     >
+      <Box>
       {user && user.photoURL ? (
         <Link to="/">
           <div className="fotoPerfil">
@@ -52,12 +53,14 @@ const NavBar = () => {
           />
         </Link>
       )}
-      <Box>
+      </Box>
+
+      <Box display={{ base: "none", md: "block" }}>
         <UnorderedList
           display="flex"
           fontFamily="Inter"
           fontWeight="500"
-          fontSize={{ base: ".8rem", md: "1rem" }}
+          fontSize="1rem"
         >
           <ListItem
             listStyleType="none"
@@ -83,10 +86,26 @@ const NavBar = () => {
         </UnorderedList>
       </Box>
 
-      {user ? (
-        <>
+      <Box display={{ base: "block", md: "none" }}>
+        <Menu>
+          <MenuButton as={Button} colorScheme="blue" size="sm">
+            Menu
+          </MenuButton>
+          <MenuList>
+            <MenuGroup title="Navegação">
+              <Link to="/">
+                <MenuItem>Início</MenuItem>
+              </Link>
+              <Link to="/explorar">
+                <MenuItem>Explorar</MenuItem>
+              </Link>
+              <Link to="/notifique-me">
+                <MenuItem>Não encontrei o que queria</MenuItem>
+              </Link>
+            </MenuGroup>
+            {user ? (
           <Menu>
-            <MenuButton as={Button} colorScheme="blue">
+            <MenuButton as={Button} colorScheme="blue" size="sm">
               Minha conta
             </MenuButton>
             <MenuList>
@@ -95,27 +114,58 @@ const NavBar = () => {
                   <MenuItem>Endereço e contato</MenuItem>
                 </Link>
                 <Link to="/meus-posts">
-                  <MenuItem>Meus Posts </MenuItem>
+                  <MenuItem>Meus Posts</MenuItem>
                 </Link>
                 <MenuItem onClick={logOut}>Sair</MenuItem>
               </MenuGroup>
             </MenuList>
           </Menu>
-        </>
-      ) : (
-        <>
+        ) : (
           <Link to="/login">
             <Button
               bg="brand.btn"
-              display={{ base: "none", md: "flex" }}
               color="brand.bg"
               _hover={{ bg: "#008000" }}
             >
               Login
             </Button>
           </Link>
-        </>
-      )}
+        )}
+          </MenuList>
+          
+        </Menu>
+      </Box>
+
+      <Box display={{ base: "none", md: "block" }}>
+        {user ? (
+          <Menu>
+            <MenuButton as={Button} colorScheme="blue" size="sm">
+              Minha conta
+            </MenuButton>
+            <MenuList>
+              <MenuGroup title={user.email}>
+                <Link to="/meus-dados">
+                  <MenuItem>Endereço e contato</MenuItem>
+                </Link>
+                <Link to="/meus-posts">
+                  <MenuItem>Meus Posts</MenuItem>
+                </Link>
+                <MenuItem onClick={logOut}>Sair</MenuItem>
+              </MenuGroup>
+            </MenuList>
+          </Menu>
+        ) : (
+          <Link to="/login">
+            <Button
+              bg="brand.btn"
+              color="brand.bg"
+              _hover={{ bg: "#008000" }}
+            >
+              Login
+            </Button>
+          </Link>
+        )}
+      </Box>
     </Stack>
   );
 };

@@ -48,7 +48,7 @@ const Cards = ({ post }) => {
         <HStack as="span" fontSize="sm">
           {qtd_pecas === "" ? null : (
             <HStack>
-              <Icon as={BiPackage} color="gray" fontSize="1.2rem" /> <Text>{qtd_pecas} peças </Text>
+              <Icon as={BiPackage} color="gray" fontSize="1.2rem" /> <Text>{qtd_pecas} peça(s) </Text>
             </HStack>
           )}
         </HStack>

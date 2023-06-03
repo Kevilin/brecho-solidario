@@ -62,9 +62,6 @@ const Form = () => {
               ))
             )}
           </HStack>
-          <Text textAlign="center" as="p" fontSize=".9rem" color="brand.description">
-            Imagens anexadas: {urlLink.length} / 3
-          </Text>
         </Box>
         <FormLabel>
         <InputComp nameprop="descricao_post" label="Descrição" type="text" place="" value={handleChange} />

@@ -87,7 +87,7 @@ export const HandleClick = () => {
 
   //Upload das imagens para o Firebase
   const onFileChange = async (e) => {
-    if (urlLink.length < 3) {
+    if (urlLink.length < 1) {
       //lê arquivo
       const file = e.target.files[0];
       //Upload
@@ -97,7 +97,7 @@ export const HandleClick = () => {
       const urlParaDownload = await getDownloadURL(fileRef);
       setUrlLink((prevUrlLink) => [...prevUrlLink, { urlLink: urlParaDownload, imageData: upload.ref.name }]);
     } else {
-      return alert("Só é possivel inserir 3 imagens.");
+      return alert("Só é possivel inserir uma imagem, tente novamente!");
     }
   };
 

@@ -81,7 +81,8 @@ const NavBar = () => {
             m={4}
             _hover={{ color: "brand.btn", transition: "0.2s" }}
           >
-            <Link to="/notifique-me">Não encontrei o que queria</Link>
+            {user ? (<Link to="/notifique-me">Não encontrei o que queria</Link>) :
+            (<Link to="/login">Não encontrei o que queria</Link>)}
           </ListItem>
         </UnorderedList>
       </Box>
@@ -99,9 +100,14 @@ const NavBar = () => {
               <Link to="/explorar">
                 <MenuItem>Explorar</MenuItem>
               </Link>
-              <Link to="/notifique-me">
+              {user ? 
+              (<Link to="/notifique-me">
                 <MenuItem>Não encontrei o que queria</MenuItem>
-              </Link>
+              </Link>) :
+              (<Link to="/login">
+              <MenuItem>Não encontrei o que queria</MenuItem>
+            </Link>)}
+
             </MenuGroup>
             {user ? (
           <Menu>

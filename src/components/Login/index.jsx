@@ -41,7 +41,7 @@ const Login = () => {
             <span className="login-form-title"> Bem vindo ao Brechó Solidário</span>
             <br></br>
             <div className="wrap-input">
-              <span>E-mail</span>
+              <span style={{ color: 'white' }}>E-mail</span>
               <input
                 className={email !== "" ? "has-val input" : "input"}
                 type="email"
@@ -51,7 +51,7 @@ const Login = () => {
             </div>
 
             <div className="wrap-input">
-              <span>Senha</span>
+              <span style={{ color: 'white' }}>Senha</span>
               <input
                 className={password !== "" ? "has-val input" : "input"}
                 type="password"

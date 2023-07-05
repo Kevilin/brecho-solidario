@@ -30,7 +30,7 @@ const Signup = () => {
             <span className="login-form-title"> Criar Conta </span>
 
             <div className="wrap-input">
-              <span className="white-text">E-mail</span>
+              <span style={{ color: 'white' }}>E-mail</span>
               <input
                 className={email !== "" ? "has-val input" : "input"}
                 type="email"
@@ -40,7 +40,7 @@ const Signup = () => {
             </div>
 
             <div className="wrap-input">
-            <span className="white-text">Senha</span>
+            <span style={{ color: 'white' }}>Senha</span>
               <input
                 className={password !== "" ? "has-val input" : "input"}
                 type="password"
